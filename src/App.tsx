@@ -8,6 +8,7 @@ function App(): JSX.Element {
   return (
     <div className="app">
       <header className="app-header">
+        <button className="btn btn-primary">Hello from Bootstrap</button>
         <img src={logo} className="app-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
