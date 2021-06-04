@@ -1,8 +1,8 @@
 import React from 'react'
 
-import logo from './assets/images/logo.svg'
-import './dummy.scss'
-import './assets/stylesheets/application.scss'
+import logo from 'assets/images/logo.svg'
+import 'dummy.scss'
+import 'assets/stylesheets/application.scss'
 
 function App(): JSX.Element {
   return (
