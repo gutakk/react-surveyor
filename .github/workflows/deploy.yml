@@ -16,5 +16,5 @@ jobs:
       - name: Deploy to Heroku
         run: |
           git remote add react-surveyor-staging https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_STAGING.git
-          git fetch origin --all --unshallow
+          git fetch --all --unshallow
           git push -f react-surveyor-staging origin/chore/task-4-setup-cd:refs/heads/master
