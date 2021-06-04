@@ -23,4 +23,6 @@ jobs:
         run: npm run test
 
       - name: UI test
-        run: npm run cypress:run
+        uses: cypress-io/github-action@v2
+        with:
+          start: npm start
