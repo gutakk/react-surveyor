@@ -2,9 +2,13 @@ import React from 'react'
 
 import FormButton from 'components/FormButton'
 
-const SignInForm = (): JSX.Element => {
+type SignInFormProps = {
+  submitHandler: React.FormEventHandler
+}
+
+const SignInForm = ({ submitHandler }: SignInFormProps): JSX.Element => {
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div>
         <label htmlFor="email">Email</label>
         <input type="email" />
