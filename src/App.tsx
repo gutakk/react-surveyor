@@ -1,14 +1,16 @@
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
 
-import 'dummy.scss'
+import Routes from 'routes'
 import 'assets/stylesheets/application.scss'
-import SignIn from 'screens/SignIn'
 
 function App(): JSX.Element {
   return (
-    <div className="app">
-      <SignIn />
-    </div>
+    <BrowserRouter>
+      <div className="app">
+        <Routes />
+      </div>
+    </BrowserRouter>
   )
 }
 
