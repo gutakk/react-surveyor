@@ -9,9 +9,11 @@ const Routes = (): JSX.Element => {
     <div>
       <Switch>
         <Route path="/" exact>
-          {Home}
+          <Home />
         </Route>
-        <Route path="/sign-in">{SignIn}</Route>
+        <Route path="/sign-in">
+          <SignIn />
+        </Route>
       </Switch>
     </div>
   )
