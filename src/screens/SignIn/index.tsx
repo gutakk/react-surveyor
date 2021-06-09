@@ -15,6 +15,8 @@ const SignIn = (): JSX.Element => {
     <div>
       <p>Logo</p>
       <p>Sign in to Nimble</p>
+
+      {handler.error && <div>{handler.error}</div>}
       <SignInForm submitHandler={handler.handleSubmit} />
     </div>
   )
