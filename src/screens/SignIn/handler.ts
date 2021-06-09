@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import AuthAdapter from 'adapters/auth'
+
 type SubmitHandler = {
   requestSuccess: boolean
   error: string
@@ -18,8 +20,8 @@ const SubmitHandler = (): SubmitHandler => {
       password: { value: string }
     }
 
-    console.log(target.email.value)
-    console.log(target.password.value)
+    console.log(AuthAdapter.signIn(target.email.value, target.password.value))
+
     setRequestSuccess(false)
     setError('Login Unsuccessfully')
   }
