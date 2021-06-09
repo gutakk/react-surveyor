@@ -12,6 +12,14 @@ const SubmitHandler = (): SubmitHandler => {
 
   const handleSubmit = (e: React.SyntheticEvent): void => {
     e.preventDefault()
+
+    const target = e.target as typeof e.target & {
+      email: { value: string }
+      password: { value: string }
+    }
+
+    console.log(target.email.value)
+    console.log(target.password.value)
     setRequestSuccess(true)
     setError('world')
   }

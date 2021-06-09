@@ -11,12 +11,12 @@ const SignInForm = ({ submitHandler }: SignInFormProps): JSX.Element => {
     <form onSubmit={submitHandler}>
       <div>
         <label htmlFor="email">Email</label>
-        <input type="email" />
+        <input type="email" name="email" required />
       </div>
 
       <div>
         <label htmlFor="password">Password</label>
-        <input type="password" />
+        <input type="password" name="password" required />
         <a href="/forgot-password">Forgot?</a>
       </div>
 
