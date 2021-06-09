@@ -1,10 +1,15 @@
 import React from 'react'
+import { Redirect } from 'react-router-dom'
 
 import SignInForm from 'screens/SignIn/form'
 import SubmitHandler from 'screens/SignIn/handler'
 
 const SignIn = (): JSX.Element => {
   const handler = SubmitHandler()
+
+  if (handler.requestSuccess) {
+    return <Redirect to="/" />
+  }
 
   return (
     <div>
