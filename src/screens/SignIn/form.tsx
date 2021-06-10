@@ -3,7 +3,7 @@ import React from 'react'
 import FormButton from 'components/FormButton'
 
 type SignInFormProps = {
-  submitHandler: React.FormEventHandler
+  submitHandler?: React.FormEventHandler
 }
 
 const SignInForm = ({ submitHandler }: SignInFormProps): JSX.Element => {
@@ -11,12 +11,12 @@ const SignInForm = ({ submitHandler }: SignInFormProps): JSX.Element => {
     <form onSubmit={submitHandler}>
       <div>
         <label htmlFor="email">Email</label>
-        <input type="email" name="email" required />
+        <input type="email" name="email" id="email" required />
       </div>
 
       <div>
         <label htmlFor="password">Password</label>
-        <input type="password" name="password" required />
+        <input type="password" name="password" id="password" required />
         <a href="/forgot-password">Forgot?</a>
       </div>
 
