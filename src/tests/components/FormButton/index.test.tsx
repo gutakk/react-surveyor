@@ -5,7 +5,7 @@ import FormButton from 'components/FormButton'
 
 describe('Given FormButton component is mounted', () => {
   const label = 'Test Label'
-  const { getByText } = render(<FormButton label={ label } />)
+  const { getByText } = render(<FormButton label={label} />)
   const formButton = getByText(label)
 
   it('renders button with correct label', () => {
