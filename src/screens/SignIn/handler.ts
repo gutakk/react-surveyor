@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 
 import AuthAdapter from 'adapters/auth'
+import { AuthContext } from 'contexts/auth'
 
 type SubmitHandler = {
   requestSuccess: boolean
@@ -11,8 +12,9 @@ type SubmitHandler = {
 const SubmitHandler = (): SubmitHandler => {
   const [requestSuccess, setRequestSuccess] = useState(false)
   const [error, setError] = useState('')
+  const { dispatch } = useContext(AuthContext)
 
-  const handleSubmit = (e: React.SyntheticEvent): void => {
+  const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault()
 
     const target = e.target as typeof e.target & {
@@ -20,10 +22,23 @@ const SubmitHandler = (): SubmitHandler => {
       password: { value: string }
     }
 
-    console.log(AuthAdapter.signIn(target.email.value, target.password.value))
-
-    setRequestSuccess(false)
-    setError('Login Unsuccessfully')
+    await AuthAdapter.signIn(target.email.value, target.password.value)
+      .then(function (response) {
+        if (response.status === 200) {
+          dispatch({
+            type: 'AUTH',
+            payload: response.data.data
+          })
+          setRequestSuccess(true)
+        }
+      })
+      .catch(function (err) {
+        if (err.response.status === 400) {
+          setError('Invalid email or password')
+        } else {
+          setError('Something went wrong. Please try again')
+        }
+      })
   }
 
   return {
