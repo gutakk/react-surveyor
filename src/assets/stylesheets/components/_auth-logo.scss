@@ -2,18 +2,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 320px;
-  height: 86px;
-  margin-bottom: 32px;
+  width: rem(320px);
+  height: rem(80px);
+  margin-bottom: rem(32px);
 
   &__image {
-    margin-bottom: 24px;
+    margin-bottom: rem(24px);
   }
 
   &__label {
     color: map-get($brand-white, 6);
-    font-size: 17px;
-
-    line-height: 22px;
+    font-size: rem(17px);
   }
 }

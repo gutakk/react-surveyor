@@ -4,6 +4,6 @@
   top: calc(50% - 390px/2);
   left: calc(50% - 320px/2);
   flex-direction: column;
-  width: 320px;
-  height: 390px;
+  width: rem(320px);
+  height: rem(390px);
 }
