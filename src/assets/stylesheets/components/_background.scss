@@ -1,0 +1,31 @@
+.page-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  &__background-image {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: {
+      color: #000000;
+      repeat: no-repeat;
+      size: cover;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, #000000 100%);
+    backdrop-filter: blur(rem(50px));
+    mix-blend-mode: normal;
+  }
+}
