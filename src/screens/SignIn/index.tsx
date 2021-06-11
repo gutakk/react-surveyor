@@ -13,7 +13,7 @@ const SignIn = (): JSX.Element => {
 
   return (
     <div>
-      <p>Logo</p>
+      <img alt="NIMBLE" />
       <p>Sign in to Nimble</p>
 
       {handler.error && <div>{handler.error}</div>}

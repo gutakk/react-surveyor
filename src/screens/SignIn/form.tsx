@@ -8,7 +8,7 @@ type SignInFormProps = {
 
 const SignInForm = ({ submitHandler }: SignInFormProps): JSX.Element => {
   return (
-    <form onSubmit={submitHandler}>
+    <form id="signInForm" onSubmit={submitHandler}>
       <div>
         <label htmlFor="email">Email</label>
         <input type="email" name="email" id="email" required />
