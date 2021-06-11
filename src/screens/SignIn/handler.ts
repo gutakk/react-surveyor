@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
 
 import AuthAdapter from 'adapters/auth'
+import * as Constants from 'constants/auth'
 import { AuthContext } from 'contexts/auth'
 
 type SubmitHandler = {
@@ -26,7 +27,7 @@ const SubmitHandler = (): SubmitHandler => {
       .then(function (response) {
         if (response.status === 200) {
           dispatch({
-            type: 'AUTH',
+            type: Constants.AUTH,
             payload: response.data.data
           })
           setRequestSuccess(true)

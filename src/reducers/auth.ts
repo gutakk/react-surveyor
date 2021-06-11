@@ -1,3 +1,5 @@
+import * as Constants from 'constants/auth'
+
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 type ActionType = {
   type: string
@@ -6,7 +8,7 @@ type ActionType = {
 
 const AuthReducer = (state: Record<string, unknown>, action: ActionType): Record<string, unknown> => {
   switch (action.type) {
-    case 'AUTH': {
+    case Constants.AUTH: {
       const { access_token, refresh_token, token_type } = action.payload.attributes
       localStorage.setItem('access_token', access_token)
       localStorage.setItem('refresh_token', refresh_token)
