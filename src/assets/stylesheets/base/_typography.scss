@@ -1,11 +1,13 @@
 a {
-  color: #FFFFFF;
   opacity: 0.5;
-  text-decoration: none;
+
+  color: #fff;
   font-family: Neuzeit S LT Std;
+  text-decoration: none;
 
   &:hover {
-    color: #FFFFFF;
     opacity: 0.5;
+    
+    color: #fff;
   }
 }

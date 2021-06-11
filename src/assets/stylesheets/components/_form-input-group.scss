@@ -5,15 +5,16 @@
   height: 100px;
 
   &__label {
+    margin-bottom: 8px;
+
+    color: #fff;
     font-family: Neuzeit S LT Std;
     font-size: 15px;
-    color: #FFFFFF;
-    margin-bottom: 8px;
   }
 
   &__forgot-password {
     position: absolute;
-    right: 12px;
     top: calc(50% + 70px);
+    right: 12px;
   }
 }

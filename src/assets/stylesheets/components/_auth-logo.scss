@@ -11,10 +11,12 @@
   }
 
   &__label {
+    opacity: 0.6;
+
+    color: #fff;
     font-family: Neuzeit S LT Std;
     font-size: 17px;
+
     line-height: 22px;
-    color: #FFFFFF;
-    opacity: 0.6;
   }
 }
