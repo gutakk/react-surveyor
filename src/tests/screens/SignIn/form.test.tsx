@@ -32,6 +32,13 @@ describe('Given SignIn form is mounted', () => {
     expect(passwordInput).toHaveAttribute('required')
   })
 
+  it('renders forgot password link', () => {
+    const { getByText } = render(<SignInForm />)
+    const forgotPasswordLink = getByText('Forgot?', {exact: true})
+
+    expect(forgotPasswordLink).toBeInTheDocument()
+  })
+
   it('renders submit button', () => {
     const { getByText } = render(<SignInForm />)
     const submitButton = getByText('Sign in', {exact: true})
