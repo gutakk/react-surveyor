@@ -11,9 +11,7 @@
   }
 
   &__label {
-    opacity: 0.6;
-
-    color: #fff;
+    color: map-get($brand-white, 6);
     font-size: 17px;
 
     line-height: 22px;

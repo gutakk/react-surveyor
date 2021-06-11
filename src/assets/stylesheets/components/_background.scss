@@ -12,7 +12,6 @@
     bottom: 0;
     left: 0;
     background: {
-      color: #000;
       repeat: no-repeat;
       size: cover;
     }
@@ -25,7 +24,7 @@
     bottom: 0;
     left: 0;
     
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, #000 100%);
+    background: linear-gradient(180deg, map-get($brand-black, 2) 0%, map-get($brand-black, 10) 100%);
     backdrop-filter: blur(rem(50px));
     mix-blend-mode: normal;
   }
