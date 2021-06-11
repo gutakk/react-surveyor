@@ -1,16 +1,8 @@
 .page-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  @include position-absolute();
 
   &__background-image {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    @include position-absolute();
     background: {
       repeat: no-repeat;
       size: cover;
@@ -18,12 +10,7 @@
   }
 
   &__overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    
+    @include position-absolute();
     background: linear-gradient(180deg, map-get($brand-black, 2) 0%, map-get($brand-black, 10) 100%);
     backdrop-filter: blur(rem(50px));
     mix-blend-mode: normal;
