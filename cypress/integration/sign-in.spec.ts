@@ -1,7 +1,7 @@
 describe('Sign In Page', () => {
   describe('Given valid user credential', () => {
     beforeEach(() => {
-      cy.signIn('thiramate@nimblehq.co', '12345678')
+      cy.signIn(Cypress.env('CYPRESS_VALID_EMAIL'), Cypress.env('CYPRESS_VALID_PASSWORD'))
     })
 
     it('Redirects to home page', () => {
