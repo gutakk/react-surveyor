@@ -1,6 +1,7 @@
 describe('Sign In Page', () => {
   describe('Given valid user credential', () => {
     beforeEach(() => {
+      cy.mockSignInResponse(200, 'signInResponse/valid_response.json')
       cy.signIn(Cypress.env('CYPRESS_VALID_EMAIL'), Cypress.env('CYPRESS_VALID_PASSWORD'))
     })
 
@@ -21,6 +22,7 @@ describe('Sign In Page', () => {
 
   describe('Given invalid user credential', () => {
     beforeEach(() => {
+      cy.mockSignInResponse(400, 'signInResponse/error_response.json')
       cy.signIn('invalid@email.com', 'invalidPassword')
     })
 
