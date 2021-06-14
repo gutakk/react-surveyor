@@ -1,5 +1,7 @@
 import React, { useState, useContext } from 'react'
 
+import { AxiosResponse } from 'axios'
+
 import AuthAdapter from 'adapters/auth'
 import * as Constants from 'constants/auth'
 import { AuthContext } from 'contexts/auth'
@@ -24,7 +26,7 @@ const SubmitHandler = (): SubmitHandler => {
     }
 
     await AuthAdapter.signIn(target.email.value, target.password.value)
-      .then(function (response) {
+      .then(function (response: AxiosResponse) {
         if (response.status === 200) {
           dispatch({
             type: Constants.AUTH,
