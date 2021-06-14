@@ -1,0 +1,27 @@
+.alert {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: rem(20px);
+  padding: rem(20px);
+
+  border-radius: rem(12px);
+
+  background-color: rgba(37, 37, 37, 0.6);
+}
+
+.alert-message {
+  margin-left: rem(20px);
+
+  &__title {
+    margin-bottom: rem(8px);
+
+    font-size: rem(15px);
+    font-weight: 800;
+  }
+
+  &__detail {
+    color: map-get($brand-white, 6);
+    font-size: rem(13px);
+  }
+}
