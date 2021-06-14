@@ -3,7 +3,7 @@ import React from 'react'
 import FormButton from 'components/FormButton'
 
 type SignInFormProps = {
-  submitHandler?: React.FormEventHandler
+  submitHandler: React.FormEventHandler
 }
 
 const SignInForm = ({ submitHandler }: SignInFormProps): JSX.Element => {
