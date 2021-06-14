@@ -5,9 +5,9 @@ import SignInForm from 'screens/SignIn/form'
 import SubmitHandler from 'screens/SignIn/handler'
 
 const SignIn = (): JSX.Element => {
-  const handler = SubmitHandler()
+  const { requestSuccess, error, handleSubmit } = SubmitHandler()
 
-  if (handler.requestSuccess) {
+  if (requestSuccess) {
     return <Redirect to="/" />
   }
 
@@ -16,8 +16,8 @@ const SignIn = (): JSX.Element => {
       <img alt="NIMBLE" />
       <p>Sign in to Nimble</p>
 
-      {handler.error && <div>{handler.error}</div>}
-      <SignInForm submitHandler={handler.handleSubmit} />
+      {error && <div>{error}</div>}
+      <SignInForm submitHandler={handleSubmit} />
     </div>
   )
 }
