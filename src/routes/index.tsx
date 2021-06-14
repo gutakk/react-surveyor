@@ -6,16 +6,14 @@ import SignIn from 'screens/SignIn'
 
 const Routes = (): JSX.Element => {
   return (
-    <div>
-      <Switch>
-        <Route path="/" exact>
-          <Home />
-        </Route>
-        <Route path="/sign-in">
-          <SignIn />
-        </Route>
-      </Switch>
-    </div>
+    <Switch>
+      <Route path="/" exact>
+        <Home />
+      </Route>
+      <Route path="/sign-in">
+        <SignIn />
+      </Route>
+    </Switch>
   )
 }
 
