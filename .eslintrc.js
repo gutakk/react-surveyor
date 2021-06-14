@@ -26,7 +26,11 @@ module.exports = {
       files: 'cypress/**/*.ts',
       extends: [
         'plugin:cypress/recommended'
-      ]
+      ],
+      rules: {
+        "no-unused-expressions": "off",
+        "@typescript-eslint/no-namespace": "off"
+      }
     }
   ],
   parser: '@typescript-eslint/parser',
