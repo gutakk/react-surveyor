@@ -9,8 +9,7 @@ jobs:
       REACT_APP_NIMBLE_SURVEY_BASE_URL: ${{ secrets.REACT_APP_NIMBLE_SURVEY_BASE_URL }}
       REACT_APP_CLIENT_ID: ${{ secrets.REACT_APP_CLIENT_ID }}
       REACT_APP_CLIENT_SECRET: ${{ secrets.REACT_APP_CLIENT_SECRET }}
-      CYPRESS_VALID_EMAIL: ${{ secrets.CYPRESS_VALID_EMAIL }}
-      CYPRESS_VALID_PASSWORD: ${{ secrets.CYPRESS_VALID_PASSWORD }}
+      
     runs-on: ubuntu-latest
     steps:
       - name: Cancel previous runs
@@ -38,3 +37,4 @@ jobs:
         with:
           start: npm start
           wait-on: http://localhost:3000
+          env: CYPRESS_VALID_EMAIL=${{ secrets.CYPRESS_VALID_EMAIL }},CYPRESS_VALID_PASSWORD=${{ secrets.CYPRESS_VALID_EMAIL }}
