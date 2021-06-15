@@ -26,6 +26,7 @@ const SubmitHandler = (): SubmitHandler => {
       password: { value: string }
     }
 
+    // TODO: Add UI test for this scenario
     if (!allFieldsFilled([target.email.value, target.password.value])) {
       setError('Email and password are required')
       return
