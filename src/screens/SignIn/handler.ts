@@ -5,6 +5,7 @@ import { AxiosResponse } from 'axios'
 import AuthAdapter from 'adapters/auth'
 import * as Constants from 'constants/auth'
 import { AuthContext } from 'contexts/auth'
+import { allFieldsFilled } from 'helpers/formValidation'
 
 type SubmitHandler = {
   requestSuccess: boolean
@@ -23,6 +24,11 @@ const SubmitHandler = (): SubmitHandler => {
     const target = e.target as typeof e.target & {
       email: { value: string }
       password: { value: string }
+    }
+
+    if (!allFieldsFilled([target.email.value, target.password.value])) {
+      setError('Email and password are required')
+      return
     }
 
     await AuthAdapter.signIn(target.email.value, target.password.value)
