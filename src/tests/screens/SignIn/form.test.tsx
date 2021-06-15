@@ -24,7 +24,6 @@ describe('Given SignIn form is mounted', () => {
 
     expect(emailInput).toBeInTheDocument()
     expect(emailInput).toHaveAttribute('type', 'email')
-    expect(emailInput).toHaveAttribute('required')
   })
 
   it('renders correct password input field', () => {
@@ -33,7 +32,6 @@ describe('Given SignIn form is mounted', () => {
 
     expect(passwordInput).toBeInTheDocument()
     expect(passwordInput).toHaveAttribute('type', 'password')
-    expect(passwordInput).toHaveAttribute('required')
   })
 
   it('renders forgot password link', () => {
