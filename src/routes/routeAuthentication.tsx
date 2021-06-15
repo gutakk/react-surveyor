@@ -6,7 +6,7 @@ import { AuthContext } from 'contexts/auth'
 type RouteAuthentication = {
   component: () => JSX.Element
   path: string
-  exact: boolean
+  exact?: boolean
 }
 
 const PrivateRoute = ({ ...props }: RouteAuthentication): JSX.Element => {
