@@ -53,29 +53,32 @@ describe('Sign In Page', () => {
       cy.visit('/sign-in')
     })
 
-    describe('Given empty email', () => {
+    describe('Given empty email and password', () => {
       it('Displays form validation message', () => {
-        cy.get('#signInForm').within(() => {
-          cy.get('#email').invoke('prop', 'validationMessage').should('equal', 'Please fill out this field.')
-        })
+        cy.get('button[type=submit]').click()
+
+        cy.get('.alert').should('be.visible')
+        cy.get('.alert').contains('Email and password are required')
       })
     })
 
-    describe('Given invalid email format', () => {
+    describe('Given empty email', () => {
       it('Displays form validation message', () => {
-        cy.get('#signInForm').within(() => {
-          cy.get('#email').type('invalidEmailFormat')
-          cy.get('#email').invoke('prop', 'validationMessage').should('to.not.be.null')
-        })
+        cy.get('input[name=password]').type('password')
+        cy.get('button[type=submit]').click()
+
+        cy.get('.alert').should('be.visible')
+        cy.get('.alert').contains('Email and password are required')
       })
     })
 
     describe('Given empty password', () => {
       it('Displays form validation message', () => {
-        cy.get('#signInForm').within(() => {
-          cy.get('#email').type('test@email.com')
-          cy.get('#password').invoke('prop', 'validationMessage').should('equal', 'Please fill out this field.')
-        })
+        cy.get('input[name=email]').type('test@email.com')
+        cy.get('button[type=submit]').click()
+
+        cy.get('.alert').should('be.visible')
+        cy.get('.alert').contains('Email and password are required')
       })
     })
   })
