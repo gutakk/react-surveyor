@@ -21,10 +21,10 @@ const SignInForm = ({ submitHandler }: SignInFormProps): JSX.Element => {
           Password
         </label>
         <input type="password" name="password" id="password" />
-        <a className="form-input-group__forgot-password" href="/forgot-password">
-          Forgot?
-        </a>
       </div>
+      <a className="form-input-group__forgot-password" href="/forgot-password">
+        Forgot?
+      </a>
 
       <FormButton label="Sign in" />
     </form>

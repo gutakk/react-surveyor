@@ -12,8 +12,9 @@
   }
 
   &__forgot-password {
-    position: absolute;
-    top: calc(50% + 65px);
+    position: relative;
     right: rem(12px);
+    bottom: rem(50px);
+    margin-left: auto;
   }
 }
