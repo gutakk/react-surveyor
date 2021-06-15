@@ -1,10 +1,19 @@
 import * as Constants from 'constants/auth'
 import { AuthState } from 'contexts/auth'
 
+/* eslint-disable camelcase */
+type AuthTypePayload = {
+  attributes: {
+    access_token: string
+    refresh_token: string
+    token_type: string
+  }
+}
+
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 type ActionType = {
   type: string
-  payload: any
+  payload: AuthTypePayload
 }
 
 const AuthReducer = (state: AuthState, action: ActionType): AuthState => {
