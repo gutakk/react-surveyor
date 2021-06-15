@@ -12,19 +12,24 @@ type AuthTypePayload = {
 
 type ActionType = {
   type: string
-  payload: AuthTypePayload
+  payload?: AuthTypePayload
 }
 
 const AuthReducer = (state: AuthState, action: ActionType): AuthState => {
   switch (action.type) {
     case Constants.AUTH: {
-      /* eslint-disable camelcase */
-      const { access_token, refresh_token, token_type } = action.payload.attributes
-      localStorage.setItem('access_token', access_token)
-      localStorage.setItem('refresh_token', refresh_token)
-      localStorage.setItem('token_type', token_type)
+      const data = action?.payload?.attributes
+      if (!data) {
+        return state
+      }
+      localStorage.setItem('access_token', data.access_token)
+      localStorage.setItem('refresh_token', data.refresh_token)
+      localStorage.setItem('token_type', data.token_type)
 
-      return { ...state }
+      return { ...state, isAuthenticated: true }
+    }
+    case Constants.REFRESH: {
+      return { ...state, isAuthenticated: true }
     }
     default: {
       return state
