@@ -1,4 +1,5 @@
 import * as Constants from 'constants/auth'
+import { AuthState } from 'contexts/auth'
 
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 type ActionType = {
@@ -6,7 +7,7 @@ type ActionType = {
   payload: any
 }
 
-const AuthReducer = (state: Record<string, unknown>, action: ActionType): Record<string, unknown> => {
+const AuthReducer = (state: AuthState, action: ActionType): AuthState => {
   switch (action.type) {
     case Constants.AUTH: {
       /* eslint-disable camelcase */

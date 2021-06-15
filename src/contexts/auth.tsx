@@ -6,11 +6,17 @@ type AuthProvider = {
   children: JSX.Element
 }
 
-const initialState = {}
+export type AuthState = {
+  isAuthenticated: boolean
+}
+
+const initialState = {
+  isAuthenticated: false
+}
 
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 const AuthContext = createContext<{
-  state: any
+  state: AuthState
   dispatch: Dispatch<any>
 }>({
   state: initialState,
