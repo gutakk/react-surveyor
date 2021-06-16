@@ -7,7 +7,7 @@
 
   border-radius: rem(12px);
 
-  background-color: rgba(37, 37, 37, 0.6);
+  background-color: map-get($brand-gray, 'light');
 }
 
 .alert-message {
