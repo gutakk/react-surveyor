@@ -4,5 +4,5 @@ button {
   background-color: map-get($brand-white, 'primary');
   
   color: #15151a;
-  font-weight: 800;
+  font-weight: map-get($font-weight, 'bold');
 }

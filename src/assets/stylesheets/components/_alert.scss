@@ -17,7 +17,7 @@
     margin-bottom: rem(8px);
 
     font-size: rem(15px);
-    font-weight: 800;
+    font-weight: map-get($font-weight, 'bold');
   }
 
   &__detail {
