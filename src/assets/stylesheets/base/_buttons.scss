@@ -1,7 +1,7 @@
 button {
   border: transparent;
 
-  background-color: map-get($brand-white, 10);
+  background-color: map-get($brand-white, 'primary');
   
   color: #15151a;
   font-weight: 800;

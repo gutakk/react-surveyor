@@ -15,14 +15,14 @@ input {
   border: transparent;
   border-radius: rem(12px);
 
-  background: map-get($brand-white, 2);
+  background: map-get($brand-white, 'light-4');
   
-  color: map-get($brand-white, 10);
+  color: map-get($brand-white, 'primary');
 
   &:focus {
     outline: none;
 
-    background-color: map-get($brand-white, 3);
+    background-color: map-get($brand-white, 'light-3');
 
     box-shadow: none;
   }

@@ -7,7 +7,7 @@
   &__label {
     margin-bottom: rem(8px);
 
-    color: map-get($brand-white, 10);
+    color: map-get($brand-white, 'primary');
     font-size: rem(15px);
   }
 

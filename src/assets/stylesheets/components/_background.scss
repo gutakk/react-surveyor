@@ -15,7 +15,7 @@
     align-items: center;
     justify-content: center;
     
-    background: linear-gradient(180deg, map-get($brand-black, 2) 0%, map-get($brand-black, 10) 100%);
+    background: linear-gradient(180deg, map-get($brand-black, 'light') 0%, map-get($brand-black, 'primary') 100%);
     backdrop-filter: blur(rem(50px));
     mix-blend-mode: normal;
   }
