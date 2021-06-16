@@ -3,6 +3,6 @@ button {
 
   background-color: map-get($brand-white, 'primary');
   
-  color: #15151a;
+  color: map-get($brand-gray, 'primary');
   font-weight: map-get($font-weight, 'bold');
 }
