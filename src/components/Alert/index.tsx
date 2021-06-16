@@ -11,9 +11,9 @@ const Alert = ({ title, detail }: AlertProps): JSX.Element => {
   return (
     <div className="alert" data-test-id="alert">
       <img src={errorIcon} alt="error" />
-      <div className="alert-message">
-        <p className="alert-message__title">{title}</p>
-        <p className="alert-message__detail">{detail}</p>
+      <div className="alert__message">
+        <p className="alert__message-title">{title}</p>
+        <p className="alert__message-detail">{detail}</p>
       </div>
     </div>
   )

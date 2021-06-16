@@ -8,19 +8,19 @@
   border-radius: rem(12px);
 
   background-color: map-get($brand-gray, 'light');
-}
 
-.alert-message {
-  margin-left: rem(20px);
-
-  &__title {
+  &__message {
+    margin-left: rem(20px);
+  }
+  
+  &__message-title {
     margin-bottom: rem(8px);
 
     font-size: rem(15px);
     font-weight: map-get($font-weight, 'bold');
   }
 
-  &__detail {
+  &__message-detail {
     color: map-get($brand-white, 'light-1');
     font-size: rem(13px);
   }
