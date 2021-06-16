@@ -5,30 +5,30 @@ describe('Sign In Validation', () => {
 
   context('given empty email and password', () => {
     it('displays form validation message', () => {
-      cy.get('button[type=submit]').click()
+      cy.get('[data-test-id=formButton]').click()
 
-      cy.get('.alert').should('be.visible')
-      cy.get('.alert').contains('Email and password are required')
+      cy.get('[data-test-id=alert]').should('be.visible')
+      cy.get('[data-test-id=alert]').contains('Email and password are required')
     })
   })
 
   context('given empty email', () => {
     it('displays form validation message', () => {
-      cy.get('input[name=password]').type('password')
-      cy.get('button[type=submit]').click()
+      cy.get('[data-test-id=signInPassword]').type('password')
+      cy.get('[data-test-id=formButton]').click()
 
-      cy.get('.alert').should('be.visible')
-      cy.get('.alert').contains('Email and password are required')
+      cy.get('[data-test-id=alert]').should('be.visible')
+      cy.get('[data-test-id=alert]').contains('Email and password are required')
     })
   })
 
   context('given empty password', () => {
     it('displays form validation message', () => {
-      cy.get('input[name=email]').type('test@email.com')
-      cy.get('button[type=submit]').click()
+      cy.get('[data-test-id=signInEmail]').type('test@email.com')
+      cy.get('[data-test-id=formButton]').click()
 
-      cy.get('.alert').should('be.visible')
-      cy.get('.alert').contains('Email and password are required')
+      cy.get('[data-test-id=alert]').should('be.visible')
+      cy.get('[data-test-id=alert]').contains('Email and password are required')
     })
   })
 })

@@ -1,4 +1,4 @@
-function mockSignInResponse(statusCode: number, fixture: string): void {
+const mockSignInResponse =(statusCode: number, fixture: string): void => {
   cy.intercept('POST', '**/api/v1/oauth/token', (req) => {
     req.reply({
       statusCode: statusCode,
@@ -7,10 +7,10 @@ function mockSignInResponse(statusCode: number, fixture: string): void {
   })
 }
 
-function signIn(email: string, password: string): void {
+const signIn = (email: string, password: string): void => {
   cy.visit('/sign-in')
-  cy.get('input[name=email]').type(email)
-  cy.get('input[name=password]').type(password)
+  cy.get('[data-test-id=signInEmail]').type(email)
+  cy.get('[data-test-id=signInPassword]').type(password)
 }
 
 Cypress.Commands.add('mockSignInResponse', mockSignInResponse)

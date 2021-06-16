@@ -9,7 +9,7 @@ type AlertProps = {
 
 const Alert = ({ title, detail }: AlertProps): JSX.Element => {
   return (
-    <div className="alert">
+    <div className="alert" data-test-id="alert">
       <img src={errorIcon} alt="error" />
       <div className="alert-message">
         <p className="alert-message__title">{title}</p>
