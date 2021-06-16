@@ -10,7 +10,6 @@ type AuthTypePayload = {
   }
 }
 
-/* eslint-disable  @typescript-eslint/no-explicit-any */
 type ActionType = {
   type: string
   payload: AuthTypePayload
