@@ -48,41 +48,6 @@ describe('Sign In Page', () => {
     })
   })
 
-  describe('Given form validation', () => {
-    beforeEach(() => {
-      cy.visit('/sign-in')
-    })
-
-    describe('Given empty email and password', () => {
-      it('Displays form validation message', () => {
-        cy.get('button[type=submit]').click()
-
-        cy.get('.alert').should('be.visible')
-        cy.get('.alert').contains('Email and password are required')
-      })
-    })
-
-    describe('Given empty email', () => {
-      it('Displays form validation message', () => {
-        cy.get('input[name=password]').type('password')
-        cy.get('button[type=submit]').click()
-
-        cy.get('.alert').should('be.visible')
-        cy.get('.alert').contains('Email and password are required')
-      })
-    })
-
-    describe('Given empty password', () => {
-      it('Displays form validation message', () => {
-        cy.get('input[name=email]').type('test@email.com')
-        cy.get('button[type=submit]').click()
-
-        cy.get('.alert').should('be.visible')
-        cy.get('.alert').contains('Email and password are required')
-      })
-    })
-  })
-
   describe('Given forgot password clicked', () => {
     it('Redirects to forgot password page', () => {
       cy.visit('/sign-in')
