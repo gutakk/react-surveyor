@@ -3,3 +3,24 @@
   flex-direction: column;
   width: rem(320px);
 }
+
+.form-input-group {
+  display: flex;
+  flex-direction: column;
+  width: rem(320px);
+  height: rem(100px);
+
+  &__label {
+    margin-bottom: rem(8px);
+
+    color: map-get($brand-white, 'primary');
+    font-size: rem(15px);
+  }
+
+  &__forgot-password {
+    position: relative;
+    right: rem(12px);
+    bottom: rem(50px);
+    margin-left: auto;
+  }
+}
