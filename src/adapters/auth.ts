@@ -20,6 +20,24 @@ class AuthAdapter {
 
     return requestManager('POST', `${process.env.REACT_APP_NIMBLE_SURVEY_BASE_URL}/api/v1/oauth/token`, requestOptions)
   }
+
+  static forgotPassword = (email: string): Promise<AxiosResponse> => {
+    /* eslint-disable camelcase */
+    const requestOptions = {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: {
+        user: {
+          email: email
+        },
+        client_id: process.env.REACT_APP_CLIENT_ID,
+        client_secret: process.env.REACT_APP_CLIENT_SECRET
+      }
+    }
+
+    return requestManager('POST', `${process.env.REACT_APP_NIMBLE_SURVEY_BASE_URL}/api/v1/passwords`, requestOptions)
+  }
 }
 
 export default AuthAdapter
