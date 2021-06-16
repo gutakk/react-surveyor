@@ -2,7 +2,7 @@ import React from 'react'
 
 type BackgroundProps = {
   backgroundImage: string
-  children: JSX.Element
+  children: JSX.Element | JSX.Element[]
 }
 
 const Background = ({ backgroundImage, children }: BackgroundProps): JSX.Element => {
