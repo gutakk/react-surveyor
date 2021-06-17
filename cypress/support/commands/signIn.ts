@@ -1,3 +1,5 @@
+import { formSelectors } from '../../integration/SignIn/selectors'
+
 const mockSignInResponse =(statusCode: number, fixture: string): void => {
   cy.intercept('POST', '**/api/v1/oauth/token', (req) => {
     req.reply({
@@ -9,8 +11,8 @@ const mockSignInResponse =(statusCode: number, fixture: string): void => {
 
 const signIn = (email: string, password: string): void => {
   cy.visit('/sign-in')
-  cy.get('[data-test-id=signInEmail]').type(email)
-  cy.get('[data-test-id=signInPassword]').type(password)
+  cy.findByTestId(formSelectors.emailField).type(email)
+  cy.findByTestId(formSelectors.passwordField).type(password)
 }
 
 Cypress.Commands.add('mockSignInResponse', mockSignInResponse)
