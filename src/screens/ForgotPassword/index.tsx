@@ -16,7 +16,7 @@ const ForgotPassword = (): JSX.Element => {
       <BackButton />
       {/* TODO: DRY the container styling with Sign in page */}
       <div className="container-forgot-password">
-        <AuthLogo label="Enter your email to receive instructions for resetting your password." />
+        <AuthLogo label="Enter your email to receive instructions for resetting your password" />
         {requestSuccess && (
           <Alert title="Check your email" detail="We've email you instructions to reset your password." />
         )}

@@ -9,7 +9,7 @@ type ForgotPasswordFormProps = {
 
 const ForgotPasswordForm = ({ submitHandler }: ForgotPasswordFormProps): JSX.Element => {
   return (
-    <form id="forgotPasswordForm" onSubmit={submitHandler}>
+    <form id="forgotPasswordForm" onSubmit={submitHandler} data-test-id="forgotPasswordForm">
       <AuthInputField type="email" name="email" id="email" dataTestID="forgotPasswordEmail" label="Email" />
       <FormButton label="Send Recovery Email" />
     </form>

@@ -8,7 +8,11 @@ type BackgroundProps = {
 const Background = ({ backgroundImage, children }: BackgroundProps): JSX.Element => {
   return (
     <div className="background">
-      <div className="background__image" style={{ backgroundImage: `url(${backgroundImage})` }}>
+      <div
+        className="background__image"
+        style={{ backgroundImage: `url(${backgroundImage})` }}
+        data-test-id="backgroundImage"
+      >
         <div className="background__overlay">{children}</div>
       </div>
     </div>
