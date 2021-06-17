@@ -31,7 +31,9 @@ describe('given ForgetPassword page is mounted', () => {
   })
 
   it('renders page title', () => {
-    const pageTitle = element.getByText('Enter your email to receive instructions for resetting your password', { exact: true })
+    const pageTitle = element.getByText('Enter your email to receive instructions for resetting your password', {
+      exact: true
+    })
 
     expect(pageTitle).toBeInTheDocument()
   })
