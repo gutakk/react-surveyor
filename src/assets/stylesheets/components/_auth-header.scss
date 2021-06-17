@@ -11,5 +11,6 @@
   &__label {
     color: map-get($brand-white, 'light-1');
     font-size: rem(17px);
+    text-align: center;
   }
 }
