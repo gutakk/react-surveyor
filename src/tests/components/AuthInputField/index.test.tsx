@@ -24,7 +24,7 @@ describe('Given AuthInputField component is mounted', () => {
   })
 
   it('renders correct input field', () => {
-    const inputField = element.container.querySelector('#someID')
+    const inputField = element.getByTestId('someDataTestID')
     expect(inputField).toBeInTheDocument()
     expect(inputField).toHaveAttribute('type', 'text')
   })
