@@ -46,9 +46,9 @@ const SubmitHandler = (): SubmitHandler => {
   }
 
   return {
-    requestSuccess: requestSuccess,
-    error: error,
-    handleSubmit: handleSubmit
+    requestSuccess,
+    error,
+    handleSubmit
   }
 }
 
