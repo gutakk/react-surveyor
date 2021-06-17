@@ -19,13 +19,6 @@ describe('Given SignIn page is mounted', () => {
     expect(pageTitle).toBeInTheDocument()
   })
 
-  it('renders page title', () => {
-    const { getByText } = render(<SignIn />)
-    const pageTitle = getByText('Sign in to Nimble', { exact: true })
-
-    expect(pageTitle).toBeInTheDocument()
-  })
-
   it('renders sign in form', () => {
     const element = render(<SignIn />)
     const signInForm = element.container.querySelector('#signInForm')
