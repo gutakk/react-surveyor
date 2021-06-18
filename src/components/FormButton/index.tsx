@@ -6,7 +6,7 @@ type FormButtonProps = {
 
 const FormButton = ({ label }: FormButtonProps): JSX.Element => {
   return (
-    <button className="form-button" type="submit" data-testid="formButton">
+    <button className="form-button" type="submit" data-test-id="formButton">
       {label}
     </button>
   )

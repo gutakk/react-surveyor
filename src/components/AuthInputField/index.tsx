@@ -15,7 +15,7 @@ const AuthInputField = ({ type, name, id, className, label, dataTestID }: AuthIn
       <label className="form-input-group__label" htmlFor={id}>
         {label}
       </label>
-      <input type={type} name={name} id={id} className={className} data-testid={dataTestID} />
+      <input type={type} name={name} id={id} className={className} data-test-id={dataTestID} />
     </div>
   )
 }

@@ -8,7 +8,7 @@ const BackButton = (): JSX.Element => {
   const goBackFunc = () => history.goBack()
 
   return (
-    <button onClick={goBackFunc} data-testid="backButton">
+    <button onClick={goBackFunc} data-test-id="backButton">
       <img src={backIcon} alt="back" />
     </button>
   )
