@@ -1,7 +1,8 @@
 const formSelectors = {
   button: 'formButton',
   emailField: 'forgotPasswordEmail',
-  alert: 'alert'
+  alert: 'alert',
+  backButton: 'backButton'
 }
 
 export { formSelectors }

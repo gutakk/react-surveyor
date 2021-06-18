@@ -30,4 +30,13 @@ describe('Forgot Password Page', () => {
       cy.findByTestId(formSelectors.alert).contains('Something went wrong. Please try again')
     })
   })
+
+  context('given back button clicked', () => {
+    it('redirects to sign in page', () => {
+      cy.visit('/forgot-password')
+      cy.findByTestId(formSelectors.backButton).click()
+
+      cy.url().should('include', '/sign-in')
+    })
+  })
 })
