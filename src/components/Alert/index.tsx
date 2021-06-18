@@ -22,7 +22,7 @@ type AlertProps = {
 const Alert = ({ title, detail, icon }: AlertProps): JSX.Element => {
   return (
     <div className="alert" data-test-id="alert">
-      <img src={alertIconMapper[icon]} alt="error" />
+      <img src={alertIconMapper[icon]} alt="error" data-test-id="alertIcon" />
       <div className="alert__message">
         <p className="alert__message-title">{title}</p>
         <p className="alert__message-detail">{detail}</p>
