@@ -1,4 +1,3 @@
-import { contains } from 'cypress/types/jquery'
 import { formSelectors } from './selectors'
 
 describe('Forgot Password Page', () => {
