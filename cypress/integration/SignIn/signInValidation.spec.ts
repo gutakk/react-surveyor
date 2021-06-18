@@ -1,7 +1,7 @@
 import { formSelectors } from './selectors'
 
 describe('Sign In Validation', () => {
-  beforeEach(() => {
+  before(() => {
     cy.visit('/sign-in')
   })
 
