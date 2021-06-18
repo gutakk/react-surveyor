@@ -1,6 +1,6 @@
 import { formSelectors } from '../../integration/SignIn/selectors'
 
-const mockSignInResponse =(statusCode: number, fixture: string): void => {
+const mockSignInResponse = (statusCode: number, fixture: string): void => {
   cy.intercept('POST', '**/api/v1/oauth/token', (req) => {
     req.reply({
       statusCode: statusCode,

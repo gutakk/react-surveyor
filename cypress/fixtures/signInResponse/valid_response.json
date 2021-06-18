@@ -1,13 +1,13 @@
 {
    "data": {
-      "id":2946,
-      "type":"token",
+      "id": 1,
+      "type": "token",
       "attributes": {
-         "access_token":"KErmouKxd502Uk4B8hNDSAG3rHREE95olC7bOhvexg0",
-         "token_type":"Bearer",
-         "expires_in":7200,
-         "refresh_token":"v8M5NevYQJFn9-XN23VAc04bWW7dDlAAcs2KyM8UAeQ",
-         "created_at":1623662478
+         "access_token": "test-access-token",
+         "token_type": "Bearer",
+         "expires_in": 99,
+         "refresh_token": "test-refresh-token",
+         "created_at": 999
       }
    }
 }
