@@ -5,7 +5,7 @@ import backIcon from 'assets/images/icons/back.svg'
 
 const BackButton = (): JSX.Element => {
   const history = useHistory()
-  const goBackFunc = () => history.goBack()
+  const goBackFunc = () => history.push('/')
 
   return (
     <button onClick={goBackFunc} data-test-id="backButton">
