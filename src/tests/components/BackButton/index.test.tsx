@@ -17,7 +17,7 @@ describe('Given BackButton component is mounted', () => {
 
   it('renders back icon', () => {
     const backImage = element.getByAltText('back')
-    
+
     expect(backImage).toBeInTheDocument()
     expect(backImage).toHaveAttribute('src', backIcon)
   })
