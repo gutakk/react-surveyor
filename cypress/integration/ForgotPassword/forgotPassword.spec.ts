@@ -21,7 +21,7 @@ describe('Forgot Password Page', () => {
     })
   })
 
-  context('given something went wrong', () => {
+  context('given internal server error', () => {
     it('displays error message', () => {
       cy.mockForgotPasswordResponse(500)
       cy.forgotPassword(Cypress.env('CYPRESS_VALID_EMAIL'))
