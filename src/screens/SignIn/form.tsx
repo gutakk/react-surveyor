@@ -12,7 +12,7 @@ const SignInForm = ({ submitHandler }: SignInFormProps): JSX.Element => {
     <form id="signInForm" onSubmit={submitHandler}>
       <AuthInputField type="email" name="email" id="email" dataTestID="signInEmail" label="Email" />
       <AuthInputField type="password" name="password" id="password" dataTestID="signInPassword" label="Password" />
-      <a className="form-input-group__forgot-password" href="/forgot-password" data-test-id="forgotPassword">
+      <a className="form-input-group__forgot-password" href="/forgot-password" data-testid="forgotPassword">
         Forgot?
       </a>
 
