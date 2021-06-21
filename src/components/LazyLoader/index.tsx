@@ -16,7 +16,7 @@ const LazyLoader = (): JSX.Element => {
         </span>
       </div>
 
-      <div className="lazy-loader-detail">
+      {/* <div className="lazy-loader-detail">
         <span className="lazy-loader-detail__date">
           <Skeleton />
         </span>
@@ -35,7 +35,7 @@ const LazyLoader = (): JSX.Element => {
         <span className="lazy-loader-detail__button">
           <Skeleton />
         </span>
-      </div>
+      </div> */}
     </SkeletonTheme>
   )
 }

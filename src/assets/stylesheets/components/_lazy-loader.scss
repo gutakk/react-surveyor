@@ -1,0 +1,18 @@
+.lazy-loader-header {
+  display: flex;
+  margin: rem(32px);
+  align-items: center;
+  justify-content: space-between;
+
+  &__web-icon .react-loading-skeleton {
+    width: rem(117px);
+    height: rem(18px);
+    border-radius: rem(14px);
+  }
+
+  &__user-image .react-loading-skeleton {
+    width: rem(36px);
+    height: rem(36px);
+    border-radius: 50%;
+  }
+}

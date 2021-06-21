@@ -5,7 +5,7 @@ import LazyLoader from 'components/LazyLoader'
 const Home = (): JSX.Element => {
   return (
     <div>
-      Hello from Home page
+      {/* Hello from Home page */}
       <LazyLoader />
     </div>
   )
