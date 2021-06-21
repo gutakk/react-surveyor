@@ -7,7 +7,6 @@
 .form-input-group {
   display: flex;
   flex-direction: column;
-  width: rem(320px);
 
   &:not(:first-child) {
     margin-top: rem(24px);
