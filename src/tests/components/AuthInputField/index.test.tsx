@@ -16,7 +16,6 @@ describe('Given AuthInputField component is mounted', () => {
         label="someLabel"
       />
     )
-    
     expect(getByLabelText('someLabel')).toBeInTheDocument()
   })
 
