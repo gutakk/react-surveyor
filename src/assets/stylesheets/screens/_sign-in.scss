@@ -1,6 +1,10 @@
-.forgot-password {
-  position: relative;
-  right: rem(12px);
-  bottom: rem(50px);
-  margin-left: auto;
+.sign-in {
+  .forgot-password {
+    position: relative;
+    right: rem(12px);
+    bottom: rem(46px);
+    height: 0;
+    margin-left: auto;
+  }
 }
+
