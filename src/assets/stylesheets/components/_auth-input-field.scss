@@ -1,8 +1,10 @@
 .form-input-group-auth {
   display: flex;
   flex-direction: column;
-  width: rem(320px);
-  height: rem(100px);
+
+  &:not(:first-child) {
+    margin-top: rem(24px);
+  }
 
   &__label {
     margin-bottom: rem(8px);
