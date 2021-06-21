@@ -12,9 +12,10 @@
 
   &__label {
     margin-bottom: rem(8px);
-
+    
     color: map-get($brand-white, 'primary');
     font-size: rem(15px);
+    font-weight: map-get($font-weight, 'bold');
   }
 
   &__forgot-password {
