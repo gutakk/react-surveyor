@@ -10,6 +10,8 @@ npm install
 
 Start development server
 
+**`.env.local` file is required** (Create `.env.local` and add values from `.env.example`)
+
 ```js
 npm start
 ```
