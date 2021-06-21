@@ -37,6 +37,4 @@ jobs:
         with:
           start: npm start
           wait-on: http://localhost:3000
-          env:
-            CYPRESS_VALID_EMAIL=${{ secrets.CYPRESS_VALID_EMAIL }}
-            CYPRESS_VALID_PASSWORD=${{ secrets.CYPRESS_VALID_EMAIL }}
+          env: CYPRESS_VALID_EMAIL=${{ secrets.CYPRESS_VALID_EMAIL }},CYPRESS_VALID_PASSWORD=${{ secrets.CYPRESS_VALID_EMAIL }}
