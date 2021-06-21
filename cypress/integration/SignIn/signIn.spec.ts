@@ -2,12 +2,9 @@ import { formSelectors } from './selectors'
 
 describe('Sign In Page', () => {
   context('given valid user credential', () => {
-    beforeEach(() => {
+    it('stores token to local storage', () => {
       cy.mockSignInResponse(200, 'signInResponse/valid_response.json')
       cy.signIn(Cypress.env('CYPRESS_VALID_EMAIL'), Cypress.env('CYPRESS_VALID_PASSWORD'))
-    })
-
-    it('stores token to local storage', () => {
       cy.findByTestId(formSelectors.button).click().should(() => {
         expect(localStorage.getItem('access_token')).eq('test-access-token')
         expect(localStorage.getItem('refresh_token')).eq('test-refresh-token')
@@ -16,6 +13,8 @@ describe('Sign In Page', () => {
     })
 
     it('redirects to home page', () => {
+      cy.mockSignInResponse(200, 'signInResponse/valid_response.json')
+      cy.signIn(Cypress.env('CYPRESS_VALID_EMAIL'), Cypress.env('CYPRESS_VALID_PASSWORD'))
       cy.findByTestId(formSelectors.button).click()
 
       cy.url().should('include', '/')
