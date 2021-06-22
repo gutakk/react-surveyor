@@ -19,16 +19,16 @@ describe('Given SignIn form is mounted', () => {
   })
 
   it('renders correct email input field', () => {
-    const element = render(<SignInForm submitHandler={handleSubmit} />)
-    const emailInput = element.container.querySelector('#email')
+    const { getByTestId } = render(<SignInForm submitHandler={handleSubmit} />)
+    const emailInput = getByTestId('signInEmail')
 
     expect(emailInput).toBeInTheDocument()
     expect(emailInput).toHaveAttribute('type', 'email')
   })
 
   it('renders correct password input field', () => {
-    const element = render(<SignInForm submitHandler={handleSubmit} />)
-    const passwordInput = element.container.querySelector('#password')
+    const { getByTestId } = render(<SignInForm submitHandler={handleSubmit} />)
+    const passwordInput = getByTestId('signInPassword')
 
     expect(passwordInput).toBeInTheDocument()
     expect(passwordInput).toHaveAttribute('type', 'password')

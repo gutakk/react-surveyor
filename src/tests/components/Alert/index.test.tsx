@@ -8,23 +8,23 @@ import Alert, { alertIcon } from 'components/Alert'
 
 describe('given Alert component is mounted', () => {
   it('renders correct title', () => {
-    const element = render(<Alert title="someTitle" detail="someDetail" icon={alertIcon.bell} />)
-    const title = element.getByText('someTitle')
+    const { getByText } = render(<Alert title="someTitle" detail="someDetail" icon={alertIcon.bell} />)
+    const title = getByText('someTitle')
 
     expect(title).toBeInTheDocument()
   })
 
   it('renders correct detail', () => {
-    const element = render(<Alert title="someTitle" detail="someDetail" icon={alertIcon.bell} />)
-    const detail = element.getByText('someDetail')
+    const { getByText } = render(<Alert title="someTitle" detail="someDetail" icon={alertIcon.bell} />)
+    const detail = getByText('someDetail')
 
     expect(detail).toBeInTheDocument()
   })
 
   describe('given bell icon', () => {
     it('renders bell icon', () => {
-      const element = render(<Alert title="someTitle" detail="someDetail" icon={alertIcon.bell} />)
-      const icon = element.getByTestId('alertIcon')
+      const { getByTestId } = render(<Alert title="someTitle" detail="someDetail" icon={alertIcon.bell} />)
+      const icon = getByTestId('alertIcon')
 
       expect(icon).toHaveAttribute('src', bellIcon)
     })
@@ -32,8 +32,8 @@ describe('given Alert component is mounted', () => {
 
   describe('given error icon', () => {
     it('renders error icon', () => {
-      const element = render(<Alert title="someTitle" detail="someDetail" icon={alertIcon.error} />)
-      const icon = element.getByTestId('alertIcon')
+      const { getByTestId } = render(<Alert title="someTitle" detail="someDetail" icon={alertIcon.error} />)
+      const icon = getByTestId('alertIcon')
 
       expect(icon).toHaveAttribute('src', errorIcon)
     })
