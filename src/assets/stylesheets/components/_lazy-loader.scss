@@ -1,6 +1,11 @@
+.container-lazy-loader {
+  background: #15151A;
+  height: 100vh;
+  padding: rem(32px);
+}
+
 .lazy-loader-header {
   display: flex;
-  margin: rem(32px);
   align-items: center;
   justify-content: space-between;
 
@@ -24,7 +29,6 @@
   margin-top: rem(49px);
   margin-left: auto;
   margin-right: auto;
-  padding: rem(0 32px);
 
   &__date .react-loading-skeleton {
     width: rem(117px);
