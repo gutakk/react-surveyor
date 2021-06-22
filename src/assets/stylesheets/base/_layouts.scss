@@ -1,6 +1,6 @@
 body {
+  background: map-get($brand-black, 'light-1');
+  
   color: map-get($brand-white, 'primary');
   font-family: Neuzeit S LT Std;
-  
-  background: map-get($brand-black, 'light-1');
 }
