@@ -5,10 +5,10 @@ import backIcon from 'assets/images/icons/back.svg'
 
 const BackButton = (): JSX.Element => {
   const history = useHistory()
-  const goBackFunc = () => history.push('/')
+  const goBack = () => history.push('/')
 
   return (
-    <button onClick={goBackFunc} data-test-id="backButton">
+    <button onClick={goBack} data-test-id="backButton">
       <img src={backIcon} alt="back" />
     </button>
   )
