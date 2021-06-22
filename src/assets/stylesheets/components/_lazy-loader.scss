@@ -16,3 +16,63 @@
     border-radius: 50%;
   }
 }
+
+.lazy-loader-body {
+  display: flex;
+  flex-direction: column;
+  max-width: rem(768px);
+  margin-top: rem(49px);
+  margin-left: auto;
+  margin-right: auto;
+  padding: rem(0 32px);
+
+  &__date .react-loading-skeleton {
+    width: rem(117px);
+    height: rem(18px);
+    border-radius: rem(14px);
+  }
+
+  &__day .react-loading-skeleton {
+    width: rem(90px);
+    height: rem(18px);
+    margin-top: rem(14px);
+    border-radius: rem(14px);
+  }
+
+  &__image .react-loading-skeleton {
+    height: rem(305px);
+    margin-top: rem(64px);
+    border-radius: rem(14px);
+  }
+}
+
+.lazy-loader-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: rem(38px);
+
+  &__survey-info-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title .react-loading-skeleton {
+    width: rem(318px);
+    height: rem(18px);
+    border-radius: rem(14px);
+  }
+
+  &__subtitle .react-loading-skeleton {
+    width: rem(200px);
+    height: rem(18px);
+    margin-top: rem(14px);
+    border-radius: rem(14px);
+  }
+
+  &__button .react-loading-skeleton {
+    width: rem(56px);
+    height: rem(56px);
+    border-radius: 50%;
+  }
+}

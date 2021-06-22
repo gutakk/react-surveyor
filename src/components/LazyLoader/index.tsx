@@ -16,26 +16,31 @@ const LazyLoader = (): JSX.Element => {
         </span>
       </div>
 
-      {/* <div className="lazy-loader-detail">
-        <span className="lazy-loader-detail__date">
+      <div className="lazy-loader-body">
+        <span className="lazy-loader-body__date">
           <Skeleton />
         </span>
-        <span className="lazy-loader-detail__day">
+        <span className="lazy-loader-body__day">
           <Skeleton />
         </span>
-        <span className="lazy-loader-detail__image">
+        <span className="lazy-loader-body__image">
           <Skeleton />
         </span>
-        <span className="lazy-loader-detail__title">
-          <Skeleton />
-        </span>
-        <span className="lazy-loader-detail__subtitle">
-          <Skeleton />
-        </span>
-        <span className="lazy-loader-detail__button">
-          <Skeleton />
-        </span>
-      </div> */}
+
+        <div className="lazy-loader-footer">
+          <div className="lazy-loader-footer__survey-info-container">
+            <span className="lazy-loader-footer__title">
+              <Skeleton />
+            </span>
+            <span className="lazy-loader-footer__subtitle">
+              <Skeleton />
+            </span>
+          </div>
+          <span className="lazy-loader-footer__button">
+            <Skeleton />
+          </span>
+        </div>
+      </div>
     </SkeletonTheme>
   )
 }
