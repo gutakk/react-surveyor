@@ -6,7 +6,7 @@ const LazyLoader = (): JSX.Element => {
   const highlightColor = '#49494D'
 
   return (
-    <div className="container-lazy-loader">
+    <div className="container-lazy-loader" data-test-id="lazyLoader">
       <SkeletonTheme color={themeColor} highlightColor={highlightColor}>
         <div className="lazy-loader-header">
           <span className="lazy-loader-header__web-icon" data-test-id="webIconLazyLoader">
