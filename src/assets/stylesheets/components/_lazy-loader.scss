@@ -48,7 +48,7 @@
     border-radius: rem(14px);
   }
 
-  &__image .react-loading-skeleton {
+  &__survey-image .react-loading-skeleton {
     height: rem(305px);
     margin-top: rem(64px);
 
@@ -67,14 +67,14 @@
     flex-direction: column;
   }
 
-  &__title .react-loading-skeleton {
+  &__survey-title .react-loading-skeleton {
     width: rem(318px);
     height: rem(18px);
 
     border-radius: rem(14px);
   }
 
-  &__subtitle .react-loading-skeleton {
+  &__survey-subtitle .react-loading-skeleton {
     width: rem(200px);
     height: rem(18px);
     margin-top: rem(14px);
