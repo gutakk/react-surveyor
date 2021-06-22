@@ -1,10 +1,11 @@
+/* eslint-disable camelcase */
+
 import { AxiosResponse } from 'axios'
 
 import requestManager from 'lib/requestManager'
 
 class AuthAdapter {
   static signIn = (email: string, password: string): Promise<AxiosResponse> => {
-    /* eslint-disable camelcase */
     const requestOptions = {
       headers: {
         'Content-Type': 'application/json'
@@ -22,7 +23,6 @@ class AuthAdapter {
   }
 
   static forgotPassword = (email: string): Promise<AxiosResponse> => {
-    /* eslint-disable camelcase */
     const requestOptions = {
       headers: {
         'Content-Type': 'application/json'
