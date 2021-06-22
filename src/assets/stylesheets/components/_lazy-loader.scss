@@ -2,7 +2,7 @@
   height: 100vh;
   padding: rem(32px);
 
-  background: #15151a;
+  background: map-get($brand-black, 'light-1');
 }
 
 .lazy-loader-header {
