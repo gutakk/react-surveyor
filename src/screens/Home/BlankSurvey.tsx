@@ -6,7 +6,7 @@ const BlankSurvey = (): JSX.Element => {
   return (
     <div className="blank-survey" data-test-id="blankSurvey">
       <div className="blank-survey-header">
-        <p className="blank-survey-header__date">MONDAY, JUNE 15</p>
+        <p className="blank-survey-header__date">Monday, June 15</p>
         <p className="blank-survey-header__day">Today</p>
       </div>
       <div className="blank-survey-detail">
