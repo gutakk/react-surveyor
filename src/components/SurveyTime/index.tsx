@@ -5,7 +5,7 @@ const SurveyTime = (): JSX.Element => {
   const today: string = new Date().toLocaleString('en-EN', options)
 
   return (
-    <div className="survey-time">
+    <div className="survey-time" data-test-id="surveyTime">
       <p className="survey-time__date">{today}</p>
       <p className="survey-time__day">Today</p>
     </div>
