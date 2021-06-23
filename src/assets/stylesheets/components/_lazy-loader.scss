@@ -49,10 +49,14 @@
   }
 
   &__survey-image .react-loading-skeleton {
-    height: rem(305px);
+    height: rem(200px);
     margin-top: rem(64px);
 
     border-radius: rem(14px);
+
+    @include media-breakpoint-up(sm) {
+      height: rem(305px);
+    }
   }
 }
 
@@ -68,18 +72,26 @@
   }
 
   &__survey-title .react-loading-skeleton {
-    width: rem(318px);
+    width: rem(180px);
     height: rem(18px);
 
     border-radius: rem(14px);
+    
+    @include media-breakpoint-up(sm) {
+      width: rem(318px);
+    }
   }
 
   &__survey-subtitle .react-loading-skeleton {
-    width: rem(200px);
+    width: rem(140px);
     height: rem(18px);
     margin-top: rem(14px);
 
     border-radius: rem(14px);
+
+    @include media-breakpoint-up(sm) {
+      width: rem(200px);
+    }
   }
 
   &__button .react-loading-skeleton {
