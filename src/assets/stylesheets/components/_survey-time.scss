@@ -2,9 +2,9 @@
   &__date {
     margin-bottom: rem(4px);
 
-    text-transform: uppercase;
     font-size: rem(13px);
     font-weight: map-get($font-weight, 'bold');
+    text-transform: uppercase;
   }
 
   &__day {
