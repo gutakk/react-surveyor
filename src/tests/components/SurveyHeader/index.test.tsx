@@ -4,7 +4,7 @@ import { render } from '@testing-library/react'
 
 import SurveyHeader from 'components/SurveyHeader'
 
-describe('given LazyLoader component is mounted', () => {
+describe('given SurveyHeader component is mounted', () => {
   it('renders header logo', () => {
     const { getByTestId } = render(<SurveyHeader />)
     const surveyHeaderLogo = getByTestId('surveyHeaderLogo')
