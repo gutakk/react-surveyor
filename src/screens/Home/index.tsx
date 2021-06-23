@@ -1,10 +1,9 @@
 import React from 'react'
 
-// import LazyLoader from 'components/LazyLoader'
 import SurveyList from 'screens/Home/SurveyList'
 
+// TODO: Add lazy loader when fetch the survey
 const Home = (): JSX.Element => {
-  // return <LazyLoader />
   return <SurveyList />
 }
 

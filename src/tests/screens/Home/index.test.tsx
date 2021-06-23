@@ -5,10 +5,10 @@ import { render } from '@testing-library/react'
 import Home from 'screens/Home'
 
 describe('given Home page is mounted', () => {
-  it('renders lazy loader', () => {
+  it('renders survey list', () => {
     const { getByTestId } = render(<Home />)
-    const lazyLoader = getByTestId('lazyLoader')
+    const surveyList = getByTestId('surveyList')
 
-    expect(lazyLoader).toBeInTheDocument()
+    expect(surveyList).toBeInTheDocument()
   })
 })
