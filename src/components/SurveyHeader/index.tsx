@@ -6,7 +6,9 @@ import userImage from 'assets/images/user-image.png'
 const SurveyHeader = (): JSX.Element => {
   return (
     <div className="survey-header">
-      <img className="survey-header__logo" src={logoWhite} alt="Nimble" data-test-id="surveyHeaderLogo" />
+      <a href="/">
+        <img className="survey-header__logo" src={logoWhite} alt="Nimble" data-test-id="surveyHeaderLogo" />
+      </a>
       <img className="survey-header__user-image" src={userImage} alt="User" data-test-id="surveyHeaderUserImage" />
     </div>
   )
