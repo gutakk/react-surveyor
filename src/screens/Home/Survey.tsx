@@ -7,7 +7,9 @@ const Survey = (): JSX.Element => {
   return (
     <div className="survey">
       <SurveyHeader />
-      <BlankSurvey />
+      <div className="container-survey-content">
+        <BlankSurvey />
+      </div>
     </div>
   )
 }
