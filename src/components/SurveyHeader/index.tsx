@@ -1,16 +1,13 @@
 import React from 'react'
 
 import logoWhite from 'assets/images/logo-white.png'
+import userImage from 'assets/images/user-image.png'
 
 const SurveyHeader = (): JSX.Element => {
   return (
     <div className="survey-header">
-      <div className="survey-header__logo" data-test-id="surveyHeaderLogo">
-        <img src={logoWhite} alt="Nimble" />
-      </div>
-      <div className="survey-header__user-image" data-test-id="surveyHeaderUserImage">
-        <img alt="User" />
-      </div>
+      <img className="survey-header__logo" src={logoWhite} alt="Nimble" data-test-id="surveyHeaderLogo" />
+      <img className="survey-header__user-image" src={userImage} alt="User" data-test-id="surveyHeaderUserImage" />
     </div>
   )
 }

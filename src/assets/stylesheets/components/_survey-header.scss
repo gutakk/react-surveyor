@@ -1,0 +1,16 @@
+.survey-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: rem(40px);
+
+  &__logo {
+    width: rem(134px);
+    height: rem(32px);
+  }
+
+  &__user-image {
+    width: rem(36px);
+    height: rem(36px);
+  }
+}
