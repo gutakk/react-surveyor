@@ -4,9 +4,9 @@ import SurveyHeader from 'components/SurveyHeader'
 import SurveyTime from 'components/SurveyTime'
 import BlankSurvey from 'screens/Home/BlankSurvey'
 
-const Survey = (): JSX.Element => {
+const SurveyList = (): JSX.Element => {
   return (
-    <div className="survey">
+    <div className="survey-list" data-test-id="surveyList">
       <SurveyHeader />
       <div className="container-survey-content">
         <SurveyTime />
@@ -16,4 +16,4 @@ const Survey = (): JSX.Element => {
   )
 }
 
-export default Survey
+export default SurveyList

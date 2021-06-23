@@ -1,11 +1,11 @@
 import React from 'react'
 
 // import LazyLoader from 'components/LazyLoader'
-import Survey from 'screens/Home/Survey'
+import SurveyList from 'screens/Home/SurveyList'
 
 const Home = (): JSX.Element => {
   // return <LazyLoader />
-  return <Survey />
+  return <SurveyList />
 }
 
 export default Home
