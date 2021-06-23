@@ -2,7 +2,7 @@ import React from 'react'
 
 import SurveyHeader from 'components/SurveyHeader'
 import SurveyTime from 'components/SurveyTime'
-import BlankSurvey from 'screens/Home/blankSurvey'
+import BlankSurvey from 'screens/Home/blankSurveys'
 
 const SurveyList = (): JSX.Element => {
   return (
