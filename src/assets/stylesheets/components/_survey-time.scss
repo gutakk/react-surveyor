@@ -1,0 +1,14 @@
+.survey-time {
+  &__date {
+    margin-bottom: rem(4px);
+
+    text-transform: uppercase;
+    font-size: rem(13px);
+    font-weight: map-get($font-weight, 'bold');
+  }
+
+  &__day {
+    font-size: rem(34px);
+    font-weight: map-get($font-weight, 'bold');
+  }
+}
