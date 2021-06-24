@@ -2,6 +2,7 @@
 
 import { AxiosResponse } from 'axios'
 
+import { postWithJsonBodyHeaders } from 'adapters/headers'
 import requestManager from 'lib/requestManager'
 
 class AuthAdapter {
@@ -13,7 +14,7 @@ class AuthAdapter {
   static signIn = (email: string, password: string): Promise<AxiosResponse> => {
     const requestOptions = {
       headers: {
-        'Content-Type': 'application/json'
+        ...postWithJsonBodyHeaders
       },
       data: {
         grant_type: 'password',
@@ -29,7 +30,7 @@ class AuthAdapter {
   static forgotPassword = (email: string): Promise<AxiosResponse> => {
     const requestOptions = {
       headers: {
-        'Content-Type': 'application/json'
+        ...postWithJsonBodyHeaders
       },
       data: {
         user: {
