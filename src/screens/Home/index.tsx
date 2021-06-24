@@ -1,10 +1,10 @@
 import React from 'react'
 
-import SurveyList from 'screens/Home/surveyList'
+import Survey from 'screens/Home/survey'
 
 // TODO: Add lazy loader when fetch the survey
 const Home = (): JSX.Element => {
-  return <SurveyList />
+  return <Survey />
 }
 
 export default Home

@@ -7,8 +7,8 @@ import Home from 'screens/Home'
 describe('given Home page is mounted', () => {
   it('renders survey list', () => {
     const { getByTestId } = render(<Home />)
-    const surveyList = getByTestId('surveyList')
+    const survey = getByTestId('survey')
 
-    expect(surveyList).toBeInTheDocument()
+    expect(survey).toBeInTheDocument()
   })
 })
