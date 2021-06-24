@@ -5,6 +5,11 @@ import { AxiosResponse } from 'axios'
 import requestManager from 'lib/requestManager'
 
 class AuthAdapter {
+  static DEFAULT_PAYLOAD = {
+    client_id: process.env.REACT_APP_CLIENT_ID,
+    client_secret: process.env.REACT_APP_CLIENT_SECRET
+  }
+
   static signIn = (email: string, password: string): Promise<AxiosResponse> => {
     const requestOptions = {
       headers: {
@@ -14,8 +19,7 @@ class AuthAdapter {
         grant_type: 'password',
         email: email,
         password: password,
-        client_id: process.env.REACT_APP_CLIENT_ID,
-        client_secret: process.env.REACT_APP_CLIENT_SECRET
+        ...AuthAdapter.DEFAULT_PAYLOAD
       }
     }
 
@@ -31,8 +35,7 @@ class AuthAdapter {
         user: {
           email: email
         },
-        client_id: process.env.REACT_APP_CLIENT_ID,
-        client_secret: process.env.REACT_APP_CLIENT_SECRET
+        ...AuthAdapter.DEFAULT_PAYLOAD
       }
     }
 
