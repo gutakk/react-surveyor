@@ -1,36 +1,20 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
-import { ApolloClient, InMemoryCache, HttpLink, ApolloProvider } from '@apollo/client'
-import { setContext } from '@apollo/client/link/context'
-
+import SurveyAdapter from 'adapters/survey'
+import LazyLoader from 'components/LazyLoader'
 import Survey from 'screens/Home/survey'
 
-// TODO: Add lazy loader when fetch the survey
 const Home = (): JSX.Element => {
-  const httpLink = new HttpLink({
-    uri: 'https://nimble-survey-web-staging.herokuapp.com/graphql'
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    SurveyAdapter.fetchSurveyList().then(function (response) {
+      console.log(response)
+      setIsLoading(false)
+    })
   })
 
-  const authLink = setContext((_, { headers }) => {
-    const token = localStorage.getItem('access_token')
-    return {
-      headers: {
-        ...headers,
-        authorization: token ? `Bearer ${token}` : ''
-      }
-    }
-  })
-
-  const client = new ApolloClient({
-    link: authLink.concat(httpLink),
-    cache: new InMemoryCache()
-  })
-
-  return (
-    <ApolloProvider client={client}>
-      <Survey />
-    </ApolloProvider>
-  )
+  return <React.Fragment>{isLoading ? <LazyLoader /> : <Survey />}</React.Fragment>
 }
 
 export default Home
