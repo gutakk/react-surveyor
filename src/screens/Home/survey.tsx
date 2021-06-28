@@ -5,14 +5,17 @@ import SurveyTime from 'components/SurveyTime'
 import BlankSurvey from 'screens/Home/blankSurvey'
 import SurveyList from 'screens/Home/surveyList'
 
-const Survey = (): JSX.Element => {
+type SurveyProps = {
+  surveyList: any
+}
+
+const Survey = ({ surveyList }: SurveyProps): JSX.Element => {
   return (
     <div className="survey" data-test-id="survey">
       <SurveyHeader />
       <div className="container-survey-content">
         <SurveyTime />
-        <BlankSurvey />
-        <SurveyList />
+        {surveyList.length > 0 ? <SurveyList /> : <BlankSurvey />}
       </div>
     </div>
   )
