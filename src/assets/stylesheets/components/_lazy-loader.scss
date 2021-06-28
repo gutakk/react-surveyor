@@ -1,14 +1,14 @@
-.container-lazy-loader {
+.lazy-loader {
   height: 100vh;
   padding: rem(32px);
 
   background: map-get($brand-black, 'light-1');
-}
 
-.lazy-loader-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
   &__web-icon .react-loading-skeleton {
     width: rem(117px);
@@ -23,15 +23,15 @@
 
     border-radius: 50%;
   }
-}
 
-.lazy-loader-body {
-  display: flex;
-  flex-direction: column;
-  max-width: rem(768px);
-  margin-top: rem(49px);
-  margin-right: auto;
-  margin-left: auto;
+  &__body {
+    display: flex;
+    flex-direction: column;
+    max-width: rem(768px);
+    margin-top: rem(49px);
+    margin-right: auto;
+    margin-left: auto;
+  }
 
   &__date .react-loading-skeleton {
     width: rem(117px);
@@ -58,13 +58,13 @@
       height: rem(305px);
     }
   }
-}
 
-.lazy-loader-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: rem(38px);
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: rem(38px);
+  }
 
   &__survey-info-container {
     display: flex;
