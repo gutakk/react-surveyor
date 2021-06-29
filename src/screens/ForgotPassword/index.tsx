@@ -2,7 +2,7 @@ import React from 'react'
 
 import authBackground from 'assets/images/auth-background.png'
 import Alert, { alertIcon } from 'components/Alert'
-import AuthLogo from 'components/AuthLogo'
+import AuthHeader from 'components/AuthHeader'
 import BackButton from 'components/BackButton'
 import Background from 'components/Background'
 import ForgotPasswordForm from 'screens/ForgotPassword/form'
@@ -16,7 +16,7 @@ const ForgotPassword = (): JSX.Element => {
       <BackButton />
       {/* TODO: DRY the container styling with Sign in page */}
       <div className="container-forgot-password">
-        <AuthLogo label="Enter your email to receive instructions for resetting your password" />
+        <AuthHeader label="Enter your email to receive instructions for resetting your password" />
         {requestSuccess && (
           <Alert
             title="Check your email"
