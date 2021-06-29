@@ -20,8 +20,8 @@ describe('Given SignIn page is mounted', () => {
   })
 
   it('renders sign in form', () => {
-    const element = render(<SignIn />)
-    const signInForm = element.container.querySelector('#signInForm')
+    const { getByTestId } = render(<SignIn />)
+    const signInForm = getByTestId('signInForm')
 
     expect(signInForm).toBeInTheDocument()
   })

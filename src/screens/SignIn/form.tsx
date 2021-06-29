@@ -1,5 +1,6 @@
 import React from 'react'
 
+import AuthInputField from 'components/AuthInputField'
 import FormButton from 'components/FormButton'
 
 type SignInFormProps = {
@@ -8,20 +9,9 @@ type SignInFormProps = {
 
 const SignInForm = ({ submitHandler }: SignInFormProps): JSX.Element => {
   return (
-    <form id="signInForm" onSubmit={submitHandler}>
-      <div className="form-input-group">
-        <label className="form-input-group__label" htmlFor="email">
-          Email
-        </label>
-        <input type="email" name="email" id="email" data-test-id="signInEmail" />
-      </div>
-
-      <div className="form-input-group">
-        <label className="form-input-group__label" htmlFor="password">
-          Password
-        </label>
-        <input type="password" name="password" id="password" data-test-id="signInPassword" />
-      </div>
+    <form id="signInForm" data-test-id="signInForm" onSubmit={submitHandler}>
+      <AuthInputField type="email" name="email" id="email" dataTestID="signInEmail" label="Email" />
+      <AuthInputField type="password" name="password" id="password" dataTestID="signInPassword" label="Password" />
       <a className="form-input-group__forgot-password" href="/forgot-password" data-test-id="forgotPassword">
         Forgot?
       </a>
