@@ -1,29 +1,12 @@
-.container-sign-in {
-  display: flex;
-  flex-direction: column;
-  width: rem(320px);
-}
-
-.form-input-group {
-  display: flex;
-  flex-direction: column;
-
-  &:not(:first-child) {
-    margin-top: rem(24px);
-  }
-
-  &__label {
-    margin-bottom: rem(8px);
-    
-    color: map-get($brand-white, 'primary');
-    font-size: rem(15px);
-    font-weight: map-get($font-weight, 'bold');
-  }
-
-  &__forgot-password {
+.sign-in {
+  .link-forgot-password {
     position: relative;
     right: rem(12px);
-    bottom: rem(50px);
+    bottom: rem(38px);
     margin-left: auto;
+  }
+
+  .form-button {
+    margin: 0;
   }
 }

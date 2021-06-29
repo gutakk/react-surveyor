@@ -18,10 +18,13 @@
 @import 'base/typography';
 
 // Layouts
+@import 'layouts/auth';
 
 // Components
 @import 'components/alert';
 @import 'components/auth-header';
+@import 'components/auth-input-field';
+@import 'components/back-button';
 @import 'components/background';
 @import 'components/form-button';
 

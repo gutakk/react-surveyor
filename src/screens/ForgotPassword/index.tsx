@@ -12,10 +12,9 @@ const ForgotPassword = (): JSX.Element => {
   const { requestSuccess, error, handleSubmit } = SubmitHandler()
 
   return (
-    <Background backgroundImage={authBackground}>
+    <Background backgroundImage={authBackground} pageClassName="forgot-password">
       <BackButton />
-      {/* TODO: DRY the container styling with Sign in page */}
-      <div className="container-forgot-password">
+      <div className="container-auth">
         <AuthHeader label="Enter your email to receive instructions for resetting your password" />
         {requestSuccess && (
           <Alert

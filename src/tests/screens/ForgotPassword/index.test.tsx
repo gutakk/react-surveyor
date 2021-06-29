@@ -1,37 +1,36 @@
 import React from 'react'
 
-import { render, RenderResult } from '@testing-library/react'
+import { render } from '@testing-library/react'
 
 import authBackground from 'assets/images/auth-background.png'
 import ForgotPassword from 'screens/ForgotPassword'
 
 describe('given ForgetPassword page is mounted', () => {
-  let element: RenderResult
-  beforeEach(() => {
-    element = render(<ForgotPassword />)
-  })
-
   it('renders background', () => {
-    const background = element.getByTestId('backgroundImage')
+    const { getByTestId } = render(<ForgotPassword />)
+    const background = getByTestId('backgroundImage')
 
     expect(background).toBeInTheDocument()
     expect(background).toHaveStyle(`background-image: url(${authBackground})`)
   })
 
   it('renders back button', () => {
-    const backButton = element.getByTestId('backButton')
+    const { getByTestId } = render(<ForgotPassword />)
+    const backButton = getByTestId('backButton')
 
     expect(backButton).toBeInTheDocument()
   })
 
   it('renders logo', () => {
-    const logo = element.getByAltText('Nimble')
+    const { getByAltText } = render(<ForgotPassword />)
+    const logo = getByAltText('Nimble')
 
     expect(logo).toBeInTheDocument()
   })
 
   it('renders page title', () => {
-    const pageTitle = element.getByText('Enter your email to receive instructions for resetting your password', {
+    const { getByText } = render(<ForgotPassword />)
+    const pageTitle = getByText('Enter your email to receive instructions for resetting your password', {
       exact: true
     })
 
@@ -39,7 +38,8 @@ describe('given ForgetPassword page is mounted', () => {
   })
 
   it('renders forgot password form', () => {
-    const forgotPasswordForm = element.getByTestId('forgotPasswordForm')
+    const { getByTestId } = render(<ForgotPassword />)
+    const forgotPasswordForm = getByTestId('forgotPasswordForm')
 
     expect(forgotPasswordForm).toBeInTheDocument()
   })

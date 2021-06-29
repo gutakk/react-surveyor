@@ -1,0 +1,16 @@
+.form-input-group {
+  display: flex;
+  flex-direction: column;
+
+  &:not(:first-child) {
+    margin-top: rem(24px);
+  }
+
+  &__label {
+    margin-bottom: rem(8px);
+
+    color: map-get($brand-white, 'primary');
+    font-size: rem(15px);
+    font-weight: map-get($font-weight, 'bold');
+  }
+}

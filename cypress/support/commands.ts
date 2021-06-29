@@ -2,3 +2,4 @@
 /* eslint-disable */
 import '@testing-library/cypress/add-commands'
 import './commands/signIn'
+import './commands/forgotPassword'
