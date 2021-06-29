@@ -1,7 +1,7 @@
 import React from 'react'
 
 import authBackground from 'assets/images/auth-background.png'
-import Alert from 'components/Alert'
+import Alert, { alertIcon } from 'components/Alert'
 import AuthLogo from 'components/AuthLogo'
 import BackButton from 'components/BackButton'
 import Background from 'components/Background'
@@ -18,9 +18,13 @@ const ForgotPassword = (): JSX.Element => {
       <div className="container-forgot-password">
         <AuthLogo label="Enter your email to receive instructions for resetting your password" />
         {requestSuccess && (
-          <Alert title="Check your email" detail="We've email you instructions to reset your password." />
+          <Alert
+            title="Check your email"
+            detail="We've email you instructions to reset your password"
+            icon={alertIcon.bell}
+          />
         )}
-        {error && <Alert title="Unable to send recovery email" detail={error} />}
+        {error && <Alert title="Unable to send recovery email" detail={error} icon={alertIcon.error} />}
         <ForgotPasswordForm submitHandler={handleSubmit} />
       </div>
     </Background>
