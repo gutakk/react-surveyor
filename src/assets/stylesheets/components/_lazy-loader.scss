@@ -1,0 +1,105 @@
+.lazy-loader {
+  height: 100vh;
+  padding: rem(32px);
+
+  background: map-get($brand-black, 'light-1');
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__web-icon .react-loading-skeleton {
+    width: rem(117px);
+    height: rem(18px);
+
+    border-radius: rem(14px);
+  }
+
+  &__user-image .react-loading-skeleton {
+    width: rem(36px);
+    height: rem(36px);
+
+    border-radius: 50%;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    max-width: rem(768px);
+    margin-top: rem(40px);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &__date .react-loading-skeleton {
+    width: rem(117px);
+    height: rem(18px);
+
+    border-radius: rem(14px);
+  }
+
+  &__day .react-loading-skeleton {
+    width: rem(90px);
+    height: rem(18px);
+    margin-top: rem(14px);
+
+    border-radius: rem(14px);
+  }
+
+  &__survey-image .react-loading-skeleton {
+    height: rem(200px);
+    margin-top: rem(64px);
+
+    border-radius: rem(14px);
+
+    @include media-breakpoint-up(sm) {
+      height: rem(305px);
+    }
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: rem(32px);
+    
+    line-height: 0;
+  }
+
+  &__survey-info-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__survey-title .react-loading-skeleton {
+    width: rem(180px);
+    height: rem(18px);
+
+    border-radius: rem(14px);
+    
+    @include media-breakpoint-up(sm) {
+      width: rem(318px);
+    }
+  }
+
+  &__survey-subtitle .react-loading-skeleton {
+    width: rem(140px);
+    height: rem(18px);
+    margin-top: rem(8px);
+
+    border-radius: rem(14px);
+
+    @include media-breakpoint-up(sm) {
+      width: rem(200px);
+    }
+  }
+
+  &__button .react-loading-skeleton {
+    width: rem(56px);
+    height: rem(56px);
+    
+    border-radius: 50%;
+  }
+}
