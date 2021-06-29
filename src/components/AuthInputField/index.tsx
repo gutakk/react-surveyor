@@ -11,8 +11,8 @@ type AuthInputFieldProps = {
 
 const AuthInputField = ({ type, name, id, className, label, dataTestID }: AuthInputFieldProps): JSX.Element => {
   return (
-    <div className="form-input-group-auth">
-      <label className="form-input-group-auth__label" htmlFor={id}>
+    <div className="form-input-group">
+      <label className="form-input-group__label" htmlFor={id}>
         {label}
       </label>
       <input type={type} name={name} id={id} className={className} data-test-id={dataTestID} />
