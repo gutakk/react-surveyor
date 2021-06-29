@@ -8,8 +8,8 @@ const BackButton = (): JSX.Element => {
   const goBack = () => history.push('/')
 
   return (
-    <button onClick={goBack} data-test-id="backButton">
-      <img src={backIcon} alt="back" />
+    <button onClick={goBack} className="back-button" data-test-id="backButton">
+      <img src={backIcon} alt="back" className="back-button__icon" />
     </button>
   )
 }
