@@ -1,18 +1,15 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch } from 'react-router-dom'
 
+import { PrivateRoute, PublicRoute } from 'routes/routeAuthentication'
 import Home from 'screens/Home'
 import SignIn from 'screens/SignIn'
 
 const Routes = (): JSX.Element => {
   return (
     <Switch>
-      <Route path="/" exact>
-        <Home />
-      </Route>
-      <Route path="/sign-in">
-        <SignIn />
-      </Route>
+      <PrivateRoute path="/" exact component={Home} />
+      <PublicRoute path="/sign-in" exact component={SignIn} />
     </Switch>
   )
 }
