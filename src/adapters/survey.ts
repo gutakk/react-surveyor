@@ -28,10 +28,10 @@ class SurveyAdapter {
           totalCount
           edges {
             node {
-              isActive
               id
               title
               description
+              coverImageUrl
             }
           }
         }

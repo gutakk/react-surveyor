@@ -1,10 +1,12 @@
 import React from 'react'
 
+import nextIcon from 'assets/images/icons/next.svg'
+
 export type SurveyData = {
   node: {
     description: string
     id: string
-    isActive: boolean
+    coverImageUrl: string
     title: string
   }
 }
@@ -14,10 +16,24 @@ type SurveyListProps = {
 }
 
 const SurveyList = ({ surveyList }: SurveyListProps): JSX.Element => {
-  console.log(surveyList[0])
   return (
     <div className="survey-list" data-test-id="surveyList">
-      <p>hello from survey list</p>
+      {surveyList.map((survey) => {
+        return (
+          <div key={survey.node.id} className="survey-list-data">
+            <img src={survey.node.coverImageUrl} alt={survey.node.title} className="survey-list-data__image" />
+            <div className="survey-list-data__footer">
+              <div className="survey-list-data__info-container">
+                <p className="survey-list-data__title">{survey.node.title}</p>
+                <p className="survey-list-data__description">{survey.node.description}</p>
+              </div>
+              <div className="survey-list-data__next">
+                <img src={nextIcon} alt="Next" />
+              </div>
+            </div>
+          </div>
+        )
+      })}
     </div>
   )
 }
