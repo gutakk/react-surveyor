@@ -63,7 +63,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: rem(38px);
+    margin-top: rem(32px);
+    
+    line-height: 0;
   }
 
   &__survey-info-container {
@@ -85,7 +87,7 @@
   &__survey-subtitle .react-loading-skeleton {
     width: rem(140px);
     height: rem(18px);
-    margin-top: rem(14px);
+    margin-top: rem(8px);
 
     border-radius: rem(14px);
 
