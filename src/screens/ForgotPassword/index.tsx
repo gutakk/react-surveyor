@@ -14,8 +14,7 @@ const ForgotPassword = (): JSX.Element => {
   return (
     <Background backgroundImage={authBackground}>
       <BackButton />
-      {/* TODO: DRY the container styling with Sign in page */}
-      <div className="container-forgot-password">
+      <div className="container-auth">
         <AuthHeader label="Enter your email to receive instructions for resetting your password" />
         {requestSuccess && (
           <Alert

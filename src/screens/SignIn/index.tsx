@@ -17,7 +17,7 @@ const SignIn = (): JSX.Element => {
 
   return (
     <Background backgroundImage={authBackground}>
-      <div className="container-sign-in">
+      <div className="container-auth">
         <AuthHeader label="Sign in to Nimble" />
         {error && <Alert title="Unable to sign in" detail={error} icon={alertIcon.error} />}
         <SignInForm submitHandler={handleSubmit} />
