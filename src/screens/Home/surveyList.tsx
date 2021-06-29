@@ -2,6 +2,7 @@
 import React from 'react'
 import Slider from 'react-slick'
 
+import BlankSurvey from 'screens/Home/blankSurvey'
 import nextIcon from 'assets/images/icons/next.svg'
 
 export type SurveyData = {
@@ -30,26 +31,33 @@ const slickSettings = {
 
 const SurveyList = ({ surveyList }: SurveyListProps): JSX.Element => {
   return (
-    <div className="survey-list" data-test-id="surveyList">
-      <Slider {...slickSettings}>
-        {surveyList.map((survey) => {
-          return (
-            <div key={survey.node.id} className="survey-list-data">
-              <img src={survey.node.coverImageUrl} alt={survey.node.title} className="survey-list-data__image" />
-              <div className="survey-list-data__footer">
-                <div className="survey-list-data__info-container">
-                  <p className="survey-list-data__title">{survey.node.title}</p>
-                  <p className="survey-list-data__description">{survey.node.description}</p>
-                </div>
-                <div className="survey-list-data__next">
-                  <img src={nextIcon} alt="Next" />
+    <React.Fragment>
+    {
+      surveyList.length > 0 ? 
+      <div className="survey-list" data-test-id="surveyList">
+        <Slider {...slickSettings}>
+          {surveyList.map((survey) => {
+            return (
+              <div key={survey.node.id} className="survey-list-data">
+                <img src={survey.node.coverImageUrl} alt={survey.node.title} className="survey-list-data__image" />
+                <div className="survey-list-data__footer">
+                  <div className="survey-list-data__info-container">
+                    <p className="survey-list-data__title">{survey.node.title}</p>
+                    <p className="survey-list-data__description">{survey.node.description}</p>
+                  </div>
+                  <div className="survey-list-data__next">
+                    <img src={nextIcon} alt="Next" />
+                  </div>
                 </div>
               </div>
-            </div>
-          )
-        })}
-      </Slider>
-    </div>
+            )
+          })}
+        </Slider>
+      </div>
+      :
+      <BlankSurvey />
+    }
+    </React.Fragment>
   )
 }
 

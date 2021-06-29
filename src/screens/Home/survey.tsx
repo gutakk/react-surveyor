@@ -2,7 +2,6 @@ import React from 'react'
 
 import SurveyHeader from 'components/SurveyHeader'
 import SurveyTime from 'components/SurveyTime'
-import BlankSurvey from 'screens/Home/blankSurvey'
 import SurveyList, { SurveyData } from 'screens/Home/surveyList'
 
 type SurveyProps = {
@@ -15,7 +14,7 @@ const Survey = ({ surveyList }: SurveyProps): JSX.Element => {
       <SurveyHeader />
       <div className="container-survey-content">
         <SurveyTime />
-        {surveyList.length > 0 ? <SurveyList surveyList={surveyList} /> : <BlankSurvey />}
+        <SurveyList surveyList={surveyList} />
       </div>
     </div>
   )
