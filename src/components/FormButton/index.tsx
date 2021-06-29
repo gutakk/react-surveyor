@@ -5,7 +5,11 @@ type FormButtonProps = {
 }
 
 const FormButton = ({ label }: FormButtonProps): JSX.Element => {
-  return <button type="submit">{label}</button>
+  return (
+    <button className="form-button" type="submit" data-test-id="formButton">
+      {label}
+    </button>
+  )
 }
 
 export default FormButton

@@ -1,0 +1,15 @@
+.auth-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: rem(32px);
+
+  &__image {
+    margin-bottom: rem(24px);
+  }
+
+  &__label {
+    color: map-get($brand-white, 'light-1');
+    font-size: rem(17px);
+  }
+}

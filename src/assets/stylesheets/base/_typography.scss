@@ -1,0 +1,12 @@
+a {
+  color: map-get($brand-white, 'light-2');
+  text-decoration: none;
+
+  &:hover {
+    color: map-get($brand-white, 'light-2');
+  }
+}
+
+p {
+  margin: 0;
+}

@@ -1,0 +1,22 @@
+.background {
+  @include position-absolute();
+
+  &__image {
+    @include position-absolute();
+    background: {
+      repeat: no-repeat;
+      size: cover;
+    }
+  }
+
+  &__overlay {
+    @include position-absolute();
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background: linear-gradient(180deg, map-get($brand-black, 'light') 0%, map-get($brand-black, 'primary') 100%);
+    backdrop-filter: blur(rem(50px));
+    mix-blend-mode: normal;
+  }
+}

@@ -1,0 +1,9 @@
+.form-button {
+  width: 100%;
+  height: rem(56px);
+
+  border-radius: rem(10px);
+
+  font-size: rem(17px);
+  font-weight: map-get($font-weight, 'bold');
+}

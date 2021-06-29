@@ -7,7 +7,7 @@ import SignIn from 'screens/SignIn'
 describe('Given SignIn page is mounted', () => {
   it('renders logo', () => {
     const { getByAltText } = render(<SignIn />)
-    const logo = getByAltText('NIMBLE')
+    const logo = getByAltText('Nimble')
 
     expect(logo).toBeInTheDocument()
   })

@@ -16,6 +16,24 @@ Start development server
 npm start
 ```
 
+Unit test
+
+```js
+npm run test
+```
+
+UI test
+
+**`cypress.env.json` file is required** (Create `cypress.env.json` and add values from `cypress.env.json.example`)
+
+```js
+// Headless
+npm run cypress:run
+
+// Browser
+npm run cypress:open
+```
+
 To visit app locally: `localhost:3000`
 
 ## About

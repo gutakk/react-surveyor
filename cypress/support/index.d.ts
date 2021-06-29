@@ -1,8 +1,6 @@
-/* eslint-disable */
-
-declare global {
-  namespace Cypress {
-    interface Chainable {
-    }
+declare namespace Cypress {
+  interface Chainable {
+    mockSignInResponse(statusCode: number, fixture: string): Cypress.Chainable<void>
+    signIn(email: string, password: string): Cypress.Chainable<void>
   }
 }

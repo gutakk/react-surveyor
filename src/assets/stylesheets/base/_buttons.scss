@@ -1,0 +1,8 @@
+button {
+  border: transparent;
+
+  background-color: map-get($brand-white, 'primary');
+  
+  color: map-get($brand-gray, 'primary');
+  font-weight: map-get($font-weight, 'bold');
+}

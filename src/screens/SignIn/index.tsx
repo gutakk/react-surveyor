@@ -1,6 +1,10 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
 
+import authBackground from 'assets/images/auth-background.png'
+import Alert from 'components/Alert'
+import AuthHeader from 'components/AuthHeader'
+import Background from 'components/Background'
 import SignInForm from 'screens/SignIn/form'
 import SubmitHandler from 'screens/SignIn/handler'
 
@@ -12,13 +16,13 @@ const SignIn = (): JSX.Element => {
   }
 
   return (
-    <div>
-      <img alt="NIMBLE" />
-      <p>Sign in to Nimble</p>
-
-      {error && <div>{error}</div>}
-      <SignInForm submitHandler={handleSubmit} />
-    </div>
+    <Background backgroundImage={authBackground}>
+      <div className="container-sign-in">
+        <AuthHeader label="Sign in to Nimble" />
+        {error && <Alert title="Unable to sign in" detail={error} />}
+        <SignInForm submitHandler={handleSubmit} />
+      </div>
+    </Background>
   )
 }
 

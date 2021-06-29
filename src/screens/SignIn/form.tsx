@@ -9,16 +9,22 @@ type SignInFormProps = {
 const SignInForm = ({ submitHandler }: SignInFormProps): JSX.Element => {
   return (
     <form id="signInForm" onSubmit={submitHandler}>
-      <div>
-        <label htmlFor="email">Email</label>
-        <input type="email" name="email" id="email" />
+      <div className="form-input-group">
+        <label className="form-input-group__label" htmlFor="email">
+          Email
+        </label>
+        <input type="email" name="email" id="email" data-test-id="signInEmail" />
       </div>
 
-      <div>
-        <label htmlFor="password">Password</label>
-        <input type="password" name="password" id="password" />
-        <a href="/forgot-password">Forgot?</a>
+      <div className="form-input-group">
+        <label className="form-input-group__label" htmlFor="password">
+          Password
+        </label>
+        <input type="password" name="password" id="password" data-test-id="signInPassword" />
       </div>
+      <a className="form-input-group__forgot-password" href="/forgot-password" data-test-id="forgotPassword">
+        Forgot?
+      </a>
 
       <FormButton label="Sign in" />
     </form>

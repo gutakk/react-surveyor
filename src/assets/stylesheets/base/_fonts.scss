@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'Neuzeit S LT Std';
+  src: url('../../fonts/NeuzeitSLTStd-Book.otf');
+}
+
+@font-face {
+  font-family: 'Neuzeit S LT Std';
+  font-weight: map-get($font-weight, 'bold');
+  src: url('../../fonts/NeuzeitSLTStd-BookHeavy.otf');
+}

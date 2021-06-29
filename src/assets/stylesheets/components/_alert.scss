@@ -1,0 +1,27 @@
+.alert {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: rem(20px);
+  padding: rem(20px);
+
+  border-radius: rem(12px);
+
+  background-color: map-get($brand-gray, 'light');
+
+  &__message {
+    margin-left: rem(20px);
+  }
+  
+  &__message-title {
+    margin-bottom: rem(8px);
+
+    font-size: rem(15px);
+    font-weight: map-get($font-weight, 'bold');
+  }
+
+  &__message-detail {
+    color: map-get($brand-white, 'light-1');
+    font-size: rem(13px);
+  }
+}
