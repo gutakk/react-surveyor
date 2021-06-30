@@ -1,8 +1,8 @@
-import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client'
+import { ApolloClient, InMemoryCache, HttpLink, NormalizedCacheObject } from '@apollo/client'
 import { setContext } from '@apollo/client/link/context'
 
 class SurveyAdapter {
-  static getClient = () => {
+  static getClient = (): ApolloClient<NormalizedCacheObject> => {
     const httpLink = new HttpLink({
       uri: process.env.REACT_APP_GRAPHQL_URL
     })

@@ -28,7 +28,7 @@ describe('given surveyList page is mounted', () => {
 
       const { container } = render(<SurveyList surveyList={surveyList} />)
       const surveys = container.getElementsByClassName('survey-list-data')
-    
+
       expect(surveys.length).toBe(2)
     })
 
@@ -121,7 +121,7 @@ describe('given surveyList page is mounted', () => {
     it('renders blank survey', () => {
       const { getByTestId } = render(<SurveyList surveyList={[]} />)
       const blankSurvey = getByTestId('blankSurvey')
-    
+
       expect(blankSurvey).toBeInTheDocument()
     })
   })

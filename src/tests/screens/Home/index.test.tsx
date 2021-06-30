@@ -12,24 +12,26 @@ describe('given Home page is mounted', () => {
       const mocks = {
         request: {
           query: GET_SURVEY_LIST,
-          variables: { isActive: true },
+          variables: { isActive: true }
         },
         result: {
           data: {
             surveys: {
-              edges: [{
-                node: {
-                  id: '1',
-                  title: 'title-1',
-                  description: 'description-1',
-                  coverImageUrl: 'image-1'
+              edges: [
+                {
+                  node: {
+                    id: '1',
+                    title: 'title-1',
+                    description: 'description-1',
+                    coverImageUrl: 'image-1'
+                  }
                 }
-              }]
+              ]
             }
-          },
-        },
+          }
+        }
       }
-      
+
       const { getByTestId } = render(
         <MockedProvider mocks={[mocks]} addTypename={false}>
           <Home />
@@ -46,24 +48,26 @@ describe('given Home page is mounted', () => {
       const mocks = {
         request: {
           query: GET_SURVEY_LIST,
-          variables: { isActive: true },
+          variables: { isActive: true }
         },
         result: {
           data: {
             surveys: {
-              edges: [{
-                node: {
-                  id: '1',
-                  title: 'title-1',
-                  description: 'description-1',
-                  coverImageUrl: 'image-1'
+              edges: [
+                {
+                  node: {
+                    id: '1',
+                    title: 'title-1',
+                    description: 'description-1',
+                    coverImageUrl: 'image-1'
+                  }
                 }
-              }]
+              ]
             }
-          },
-        },
+          }
+        }
       }
-      
+
       const { getByTestId } = render(
         <MockedProvider mocks={[mocks]} addTypename={false}>
           <Home />
@@ -80,17 +84,17 @@ describe('given Home page is mounted', () => {
       const mocks = {
         request: {
           query: GET_SURVEY_LIST,
-          variables: { isActive: true },
+          variables: { isActive: true }
         },
         result: {
           data: {
             surveys: {
               edges: []
             }
-          },
-        },
+          }
+        }
       }
-      
+
       const { getByTestId } = render(
         <MockedProvider mocks={[mocks]} addTypename={false}>
           <Home />
@@ -107,17 +111,17 @@ describe('given Home page is mounted', () => {
       const mocks = {
         request: {
           query: GET_SURVEY_LIST,
-          variables: { isActive: true },
+          variables: { isActive: true }
         },
         result: {
           data: {
             surveys: {
               edges: []
             }
-          },
-        },
+          }
+        }
       }
-      
+
       const { getByTestId } = render(
         <MockedProvider mocks={[mocks]} addTypename={false}>
           <Home />
@@ -134,12 +138,12 @@ describe('given Home page is mounted', () => {
       const mocks = {
         request: {
           query: GET_SURVEY_LIST,
-          variables: { isActive: true },
+          variables: { isActive: true }
         },
         // This is the error return from Apollo when status code is 401
         error: new Error('Response not successful: Received status code 401')
       }
-      
+
       const { getByText } = render(
         <MockedProvider mocks={[mocks]} addTypename={false}>
           <Home />
@@ -158,12 +162,12 @@ describe('given Home page is mounted', () => {
       const mocks = {
         request: {
           query: GET_SURVEY_LIST,
-          variables: { isActive: true },
+          variables: { isActive: true }
         },
         // This is the error return from Apollo when status code is 500
         error: new Error('Response not successful: Received status code 500')
       }
-      
+
       const { getByText } = render(
         <MockedProvider mocks={[mocks]} addTypename={false}>
           <Home />
@@ -182,11 +186,11 @@ describe('given Home page is mounted', () => {
       const mocks = {
         request: {
           query: GET_SURVEY_LIST,
-          variables: { isActive: true },
+          variables: { isActive: true }
         },
         errors: []
       }
-      
+
       const { getByText } = render(
         <MockedProvider mocks={[mocks]} addTypename={false}>
           <Home />
