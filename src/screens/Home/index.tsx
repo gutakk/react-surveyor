@@ -1,25 +1,43 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
-import { FetchSurveyList } from 'adapters/survey'
+import { gql, useQuery } from '@apollo/client'
+
 import LazyLoader from 'components/LazyLoader'
 import Survey from 'screens/Home/survey'
 
-const Home = (): JSX.Element => {
-  const [isLoading, setIsLoading] = useState(true)
-  const [surveyList, setSurveyList] = useState([])
-
-  const { data, error } = FetchSurveyList()
-
-  useEffect(() => {
-    if (data && Object.keys(data).length > 0) {
-      setSurveyList(data.surveys.edges)
-      setIsLoading(false)
-    } else if (error) {
-      setIsLoading(false)
+export const GET_SURVEY_LIST = gql`
+  query Surveys($isActive: Boolean!) {
+    surveys @include(if: $isActive) {
+      edges {
+        node {
+          id
+          title
+          description
+          coverImageUrl
+        }
+      }
     }
-  }, [data])
+  }
+`
 
-  return <React.Fragment>{isLoading ? <LazyLoader /> : <Survey surveyList={surveyList} />}</React.Fragment>
+const Home = (): JSX.Element => {
+  const { data, loading, error } = useQuery(GET_SURVEY_LIST, {
+    variables: {
+      isActive: true
+    }
+  })
+
+  if (loading) return <LazyLoader />
+  if (error?.networkError?.message.includes('401')) {
+    // TODO: Redirect to home page and clear local storage (this still not working because of REFRESH action bug)
+    return <p>Unauthorized</p>
+  }
+  if (error) {
+    // TODO: Create something went wrong screen
+    return <p>Something went wrong</p>
+  }
+
+  return <Survey surveyList={data.surveys.edges} />
 }
 
 export default Home

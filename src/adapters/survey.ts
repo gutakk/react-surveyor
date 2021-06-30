@@ -1,4 +1,4 @@
-import { ApolloClient, InMemoryCache, HttpLink, gql, useQuery } from '@apollo/client'
+import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client'
 import { setContext } from '@apollo/client/link/context'
 
 class SurveyAdapter {
@@ -24,32 +24,6 @@ class SurveyAdapter {
 
     return client
   }
-}
-
-export const FetchSurveyList = () => {
-  const GET_SURVEY_LIST = gql`
-    query Surveys($isActive: Boolean!) {
-      surveys @include(if: $isActive) {
-        totalCount
-        edges {
-          node {
-            id
-            title
-            description
-            coverImageUrl
-          }
-        }
-      }
-    }
-  `
-
-  const { data, error } = useQuery(GET_SURVEY_LIST, {
-    variables: {
-      isActive: true
-    }
-  })
-
-  return { data, error }
 }
 
 export default SurveyAdapter
