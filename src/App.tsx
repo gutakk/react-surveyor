@@ -11,13 +11,13 @@ import 'assets/stylesheets/application.scss'
 function App(): JSX.Element {
   return (
     <AuthProvider>
-      <ApolloProvider client={SurveyAdapter.getClient()}>
-        <BrowserRouter>
+      <BrowserRouter>
+        <ApolloProvider client={SurveyAdapter.getClient()}>
           <div className="app">
             <Routes />
           </div>
-        </BrowserRouter>
-      </ApolloProvider>
+        </ApolloProvider>
+      </BrowserRouter>
     </AuthProvider>
   )
 }
