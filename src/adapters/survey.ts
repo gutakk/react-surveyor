@@ -4,7 +4,7 @@ import { setContext } from '@apollo/client/link/context'
 class SurveyAdapter {
   static getClient = () => {
     const httpLink = new HttpLink({
-      uri: 'https://nimble-survey-web-staging.herokuapp.com/graphql'
+      uri: process.env.REACT_APP_GRAPHQL_URL
     })
 
     const authLink = setContext((_, { headers }) => {

@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
 
-// import { useQuery, gql } from '@apollo/client'
-
 import { FetchSurveyList } from 'adapters/survey'
 import LazyLoader from 'components/LazyLoader'
 import Survey from 'screens/Home/survey'
