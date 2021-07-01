@@ -18,10 +18,12 @@ const Survey = ({ surveyList }: SurveyProps): JSX.Element => {
       data-test-id="survey"
       style={{ backgroundImage: `url(${surveyBackgroundContext.state.currentBackground})` }}
     >
-      <SurveyHeader />
-      <div className="container-survey-content">
-        <SurveyTime />
-        <SurveyList surveyList={surveyList} />
+      <div className="survey__overlay">
+        <SurveyHeader />
+        <div className="container-survey-content">
+          <SurveyTime />
+          <SurveyList surveyList={surveyList} />
+        </div>
       </div>
     </div>
   )
