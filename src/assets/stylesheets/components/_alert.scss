@@ -15,12 +15,12 @@
   &__message-title {
     margin-bottom: rem(8px);
 
-    font-size: rem(15px);
+    font-size: rem(map-get($font-size, 'xs'));
     font-weight: map-get($font-weight, 'bold');
   }
 
   &__message-detail {
     color: map-get($brand-white, 'light-1');
-    font-size: rem(13px);
+    font-size: rem(map-get($font-size, 'xxs'));
   }
 }

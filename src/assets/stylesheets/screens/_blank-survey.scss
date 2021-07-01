@@ -19,11 +19,11 @@
   }
 
   &__message {
-    font-size: rem(18px);
+    font-size: rem(map-get($font-size, 'default'));
     font-weight: map-get($font-weight, 'bold');
 
     @include media-breakpoint-up(sm) {
-      font-size: rem(28px);
+      font-size: rem(map-get($font-size, 'xl'));
     }
   }
 }

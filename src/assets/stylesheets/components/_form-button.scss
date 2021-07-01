@@ -4,6 +4,6 @@
 
   border-radius: rem(10px);
 
-  font-size: rem(17px);
+  font-size: rem(map-get($font-size, 's'));
   font-weight: map-get($font-weight, 'bold');
 }
