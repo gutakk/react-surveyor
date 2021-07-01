@@ -1,9 +1,12 @@
 /* eslint-disable */
-import React from 'react'
+import React, { useContext } from 'react'
 import Slider from 'react-slick'
 
+import * as Constants from 'constants/surveyBackground'
 import BlankSurvey from 'screens/Home/blankSurvey'
 import nextIcon from 'assets/images/icons/next.svg'
+import { SurveyBackgroundContext } from 'contexts/surveyBackground'
+import { useEffect } from 'react'
 
 export type SurveyData = {
   node: {
@@ -18,18 +21,34 @@ type SurveyListProps = {
   surveyList: Array<SurveyData>
 }
 
-const slickSettings = {
-  dots: true,
-  infinite: true,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: false,
-  fade: true,
-  autoplay: true,
-  speed: 500
-}
-
 const SurveyList = ({ surveyList }: SurveyListProps): JSX.Element => {
+  const { dispatch } = useContext(SurveyBackgroundContext)
+  const slickSettings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    fade: true,
+    autoplay: true,
+    speed: 500,
+    beforeChange: (current: number, next: number) => {
+      dispatch({
+        type: Constants.SURVEY_BACKGROUND,
+        payload: surveyList[next].node.coverImageUrl
+      })
+    }
+  }
+
+  useEffect(() => {
+    if (surveyList.length > 0) {
+      dispatch({
+        type: Constants.SURVEY_BACKGROUND,
+        payload: surveyList[0].node.coverImageUrl
+      })
+    }
+  }, [])
+
   return (
     <React.Fragment>
     {

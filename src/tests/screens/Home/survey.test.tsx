@@ -2,6 +2,7 @@ import React from 'react'
 
 import { render } from '@testing-library/react'
 
+import { SurveyBackgroundContext } from 'contexts/surveyBackground'
 import Survey from 'screens/Home/survey'
 
 describe('given survey page is mounted', () => {
@@ -55,6 +56,31 @@ describe('given survey page is mounted', () => {
       const surveyListPage = getByTestId('surveyList')
 
       expect(surveyListPage).toBeInTheDocument()
+    })
+
+    it('renders correct survey background', () => {
+      const coverImageUrl = 'image-1'
+      const surveyList = [
+        {
+          node: {
+            id: '1',
+            title: 'title-1',
+            description: 'description-1',
+            coverImageUrl: coverImageUrl
+          }
+        }
+      ]
+      const state = { currentBackground: coverImageUrl }
+      const dispatch = () => null
+
+      const { getByTestId } = render(
+        <SurveyBackgroundContext.Provider value={{ state, dispatch }}>
+          <Survey surveyList={surveyList} />
+        </SurveyBackgroundContext.Provider>
+      )
+      const surveyPage = getByTestId('survey')
+
+      expect(surveyPage).toHaveStyle('background-image: url(image-1)')
     })
   })
 

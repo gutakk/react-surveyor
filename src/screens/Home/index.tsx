@@ -3,6 +3,7 @@ import React from 'react'
 import { gql, useQuery } from '@apollo/client'
 
 import LazyLoader from 'components/LazyLoader'
+import { SurveyBackgroundProvider } from 'contexts/surveyBackground'
 import Survey from 'screens/Home/survey'
 
 export const GET_SURVEY_LIST = gql`
@@ -37,7 +38,11 @@ const Home = (): JSX.Element => {
     return <p>Something went wrong</p>
   }
 
-  return <Survey surveyList={data.surveys.edges} />
+  return (
+    <SurveyBackgroundProvider>
+      <Survey surveyList={data.surveys.edges} />
+    </SurveyBackgroundProvider>
+  )
 }
 
 export default Home
