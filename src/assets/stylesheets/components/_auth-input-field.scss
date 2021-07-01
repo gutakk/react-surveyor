@@ -10,7 +10,7 @@
     margin-bottom: rem(8px);
 
     color: map-get($brand-white, 'primary');
-    font-size: rem(15px);
+    font-size: rem(map-get($font-size, 'xs'));
     font-weight: map-get($font-weight, 'bold');
   }
 }

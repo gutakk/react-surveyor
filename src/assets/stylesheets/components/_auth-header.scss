@@ -10,7 +10,7 @@
 
   &__label {
     color: map-get($brand-white, 'light-1');
-    font-size: rem(17px);
+    font-size: rem(map-get($font-size, 's'));
     text-align: center;
   }
 }

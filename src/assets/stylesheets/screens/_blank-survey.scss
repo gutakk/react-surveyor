@@ -1,0 +1,29 @@
+.blank-survey {
+  margin-top: rem(50px);
+  
+  text-align: center;
+
+  @include media-breakpoint-up(sm) {
+    margin-top: rem(147px);
+  }
+
+  &__emo {
+    width: rem(48px);
+    height: rem(48px);
+    margin-bottom: rem(32px);
+
+    @include media-breakpoint-up(sm) {
+      width: rem(64px);
+      height: rem(64px);
+    }
+  }
+
+  &__message {
+    font-size: rem(map-get($font-size, 'default'));
+    font-weight: map-get($font-weight, 'bold');
+
+    @include media-breakpoint-up(sm) {
+      font-size: rem(map-get($font-size, 'xl'));
+    }
+  }
+}

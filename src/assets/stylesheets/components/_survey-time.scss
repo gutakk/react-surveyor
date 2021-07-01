@@ -1,0 +1,18 @@
+.survey-time {
+  &__date {
+    margin-bottom: rem(4px);
+
+    font-size: rem(map-get($font-size, 'xxs'));
+    font-weight: map-get($font-weight, 'bold');
+    text-transform: uppercase;
+  }
+
+  &__day {
+    font-size: rem(map-get($font-size, 'l'));
+    font-weight: map-get($font-weight, 'bold');
+
+    @include media-breakpoint-up(sm) {
+      font-size: rem(map-get($font-size, 'xxl'));
+    }
+  }
+}
