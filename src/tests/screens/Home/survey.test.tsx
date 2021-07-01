@@ -84,7 +84,7 @@ describe('given survey page is mounted', () => {
     })
   })
 
-  describe('given empry survey list', () => {
+  describe('given empty survey list', () => {
     it('renders survey header', () => {
       const { getByTestId } = render(<Survey surveyList={[]} />)
       const surveyHeader = getByTestId('surveyHeader')
@@ -104,6 +104,20 @@ describe('given survey page is mounted', () => {
       const blankSurvey = getByTestId('blankSurvey')
 
       expect(blankSurvey).toBeInTheDocument()
+    })
+
+    it('does NOT render survey background', () => {
+      const state = { currentBackground: '' }
+      const dispatch = () => null
+
+      const { getByTestId } = render(
+        <SurveyBackgroundContext.Provider value={{ state, dispatch }}>
+          <Survey surveyList={[]} />
+        </SurveyBackgroundContext.Provider>
+      )
+      const surveyPage = getByTestId('survey')
+
+      expect(surveyPage).not.toHaveStyle('background-image: url(image-1)')
     })
   })
 })
