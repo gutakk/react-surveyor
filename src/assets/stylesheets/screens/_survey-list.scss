@@ -1,0 +1,71 @@
+.survey-list {
+  margin-top: rem(32px);
+
+  .survey-list-data {    
+    &__image {
+      width: 100%;
+      height: rem(200px);
+      border-radius: rem(12px);
+
+      @include media-breakpoint-up(sm) {
+        height: rem(302px);
+      }
+    }
+
+    &__footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: rem(32px);
+    }
+
+    &__title {
+      font-weight: map-get($font-weight, 'bold');
+      font-size: map-get($font-size, 's');
+
+      @include media-breakpoint-up(sm) {
+        font-size: map-get($font-size, 'l');
+      }
+    }
+
+    &__description {
+      font-size: map-get($font-size, 'xxs');
+      color: map-get($brand-white, 'light-1');
+
+      @include media-breakpoint-up(sm) {
+        font-size: map-get($font-size, 's');
+      }
+    }
+
+    &__next {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      height: rem(36px);
+      width: rem(36px);
+      background-color: map-get($brand-white, 'primary');
+      border-radius: 50%;
+
+      @include media-breakpoint-up(sm) {
+        height: rem(56px);
+        width: rem(56px);
+      }
+    }
+  }
+
+  /* stylelint-disable */
+  .slick-dots li button {
+    &::before {
+      color: map-get($brand-white, 'primary');
+    }
+  }
+
+  .slick-dots li {
+    margin-left: rem(5px);
+    margin-right: rem(5px);
+    width: rem(8px);
+    height: rem(8px);
+  }
+  /* stylelint-enable */
+}

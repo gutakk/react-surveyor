@@ -11,7 +11,7 @@
     width: 100%;
     height: 100%;
     padding: rem(32px);
-    
+
     background: linear-gradient(180deg, map-get($brand-black, 'light-2') 0%, map-get($brand-black, 'primary') 100%);
     backdrop-filter: blur(rem(50px));
     mix-blend-mode: normal;
