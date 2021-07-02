@@ -7,7 +7,9 @@
   }
 
   &__overlay {
+    display: flex;
     position: absolute;
+    flex-direction: column;
     width: 100%;
     height: 100%;
     padding: rem(32px);
@@ -19,7 +21,11 @@
 }
 
 .container-survey-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   max-width: rem(768px);
+  height: 100%;
   margin-right: auto;
   margin-left: auto;
 }
