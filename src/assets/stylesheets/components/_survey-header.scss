@@ -11,11 +11,10 @@
 
   &__user-image {
     position: relative;
+    z-index: 2;
     width: rem(36px);
     height: rem(36px);
     
     cursor: pointer;
-
-    z-index: 2;
   }
 }
