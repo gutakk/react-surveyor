@@ -13,4 +13,24 @@
   &--active {
     width: rem(264px);
   }
+
+  &__content {
+    padding: rem(36px 32px);
+  }
+
+  &__user {
+    font-size: map-get($font-size, 'l');
+    font-weight: map-get($font-weight, 'bold');
+  }
+
+  &__choice {
+    color: map-get($brand-white, 'light-2');
+    font-size: rem(20px);
+    
+    cursor: pointer;
+  }
+
+  hr {
+    border: rem(0.5px) solid map-get($brand-white, 'primary');
+  }
 }
