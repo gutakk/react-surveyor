@@ -1,0 +1,16 @@
+.sidebar {
+  position: fixed;
+  width: 0;
+  height: 100%;
+  right: 0;
+  top: 0;
+  z-index: 1;
+
+  background-color: rgb(30, 30, 30);
+
+  transition: 0.2s;
+
+  &--active {
+    width: rem(264px);
+  }
+}
