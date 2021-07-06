@@ -28,6 +28,13 @@ const AuthReducer = (state: AuthState, action: ActionType): AuthState => {
 
       return { ...state, isAuthenticated: true }
     }
+    case Constants.LOGOUT: {
+      localStorage.removeItem('access_token')
+      localStorage.removeItem('refresh_token')
+      localStorage.removeItem('token_type')
+
+      return { ...state, isAuthenticated: false }
+    }
     case Constants.REFRESH: {
       return { ...state, isAuthenticated: true }
     }
