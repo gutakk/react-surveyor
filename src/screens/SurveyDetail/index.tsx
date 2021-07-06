@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 
 import { gql, useQuery } from '@apollo/client'
 
+import BackButton from 'components/BackButton'
+import Background from 'components/Background'
 import LazyLoader from 'components/LazyLoader'
 
 type SurveyDetailParams = {
@@ -33,7 +35,22 @@ const SurveyDetail = (): JSX.Element => {
     return <p>Something went wrong</p>
   }
 
-  return <div>{data.survey.title}</div>
+  return (
+    <Background
+      backgroundImage={data.survey.coverImageUrl}
+      pageClassName="survey-detail"
+      context="survey"
+      dataTestID="surveyDetail"
+    >
+      <BackButton />
+      <div className="survey-detail__content">
+        <img src={data.survey.coverImageUrl} alt={data.survey.title} />
+        <p>{data.survey.title}</p>
+        <p>{data.survey.description}</p>
+        <button>Start Survey</button>
+      </div>
+    </Background>
+  )
 }
 
 export default SurveyDetail
