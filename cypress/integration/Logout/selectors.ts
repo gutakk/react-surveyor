@@ -1,7 +1,6 @@
 const formSelectors = {
   signInButton: 'formButton',
-  emailField: 'signInEmail',
-  passwordField: 'signInPassword',
+  userAvatar: 'surveyHeaderUserImage'
 }
 
 export { formSelectors }
