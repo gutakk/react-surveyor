@@ -1,31 +1,11 @@
 .survey {
-  height: 100vh;
-
-  background: {
-    repeat: no-repeat;
-    size: cover;
-  }
-
-  &__overlay {
+  .container-survey-content {
     display: flex;
-    position: absolute;
     flex-direction: column;
     width: 100%;
+    max-width: rem(768px);
     height: 100%;
-    padding: rem(32px);
-
-    background: linear-gradient(180deg, map-get($brand-black, 'light-2') 0%, map-get($brand-black, 'primary') 100%);
-    backdrop-filter: blur(rem(50px));
-    mix-blend-mode: normal;
+    margin-right: auto;
+    margin-left: auto;
   }
-}
-
-.container-survey-content {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: rem(768px);
-  height: 100%;
-  margin-right: auto;
-  margin-left: auto;
 }
