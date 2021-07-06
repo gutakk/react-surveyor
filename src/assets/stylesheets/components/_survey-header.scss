@@ -10,9 +10,12 @@
   }
 
   &__user-image {
+    position: relative;
     width: rem(36px);
     height: rem(36px);
     
     cursor: pointer;
+
+    z-index: 2;
   }
 }
