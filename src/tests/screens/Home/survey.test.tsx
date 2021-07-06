@@ -39,7 +39,7 @@ describe('given survey page is mounted', () => {
           <Survey surveyList={surveyListResponse} />
         </SurveyBackgroundContext.Provider>
       )
-      const surveyPage = getByTestId('survey')
+      const surveyPage = getByTestId('backgroundImage')
 
       expect(surveyPage).toHaveStyle('background-image: url(image-1)')
     })
@@ -76,7 +76,7 @@ describe('given survey page is mounted', () => {
           <Survey surveyList={[]} />
         </SurveyBackgroundContext.Provider>
       )
-      const surveyPage = getByTestId('survey')
+      const surveyPage = getByTestId('backgroundImage')
 
       expect(surveyPage).not.toHaveStyle('background-image: url(image-1)')
     })
