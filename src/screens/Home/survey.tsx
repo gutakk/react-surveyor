@@ -14,10 +14,7 @@ type SurveyProps = {
 const Survey = ({ surveyList }: SurveyProps): JSX.Element => {
   const surveyBackgroundContext = useContext(SurveyBackgroundContext)
   const [isOpenSidebar, setIsOpenSidebar] = useState(false)
-  const openSidebar = () => {
-    setIsOpenSidebar(!isOpenSidebar)
-    console.log(isOpenSidebar)
-  }
+  const toggleSidebar = () => setIsOpenSidebar(!isOpenSidebar)
 
   return (
     <Background
@@ -26,7 +23,7 @@ const Survey = ({ surveyList }: SurveyProps): JSX.Element => {
       dataTestID="survey"
     >
       <Sidebar isOpen={isOpenSidebar} />
-      <SurveyHeader onUserImageClick={openSidebar} />
+      <SurveyHeader onUserImageClick={toggleSidebar} />
       <div className="container-survey-content">
         <SurveyTime />
         <SurveyList surveyList={surveyList} />
