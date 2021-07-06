@@ -4,12 +4,19 @@ type BackgroundProps = {
   backgroundImage: string
   pageClassName: string
   context: string
+  dataTestID: string
   children: JSX.Element | JSX.Element[]
 }
 
-const Background = ({ backgroundImage, pageClassName, context, children }: BackgroundProps): JSX.Element => {
+const Background = ({
+  backgroundImage,
+  pageClassName,
+  context,
+  dataTestID,
+  children
+}: BackgroundProps): JSX.Element => {
   return (
-    <div className={`${pageClassName} background`}>
+    <div className={`${pageClassName} background`} data-test-id={dataTestID}>
       <div
         className="background__image"
         style={{ backgroundImage: `url(${backgroundImage})` }}
