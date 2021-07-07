@@ -9,6 +9,7 @@
 @import 'functions/sizing';
 
 // Mixins
+@import 'mixins/container-survey-content';
 @import 'mixins/position-absolute';
 
 // Base
@@ -36,5 +37,6 @@
 // Screens
 @import 'screens/blank-survey';
 @import 'screens/sign-in';
+@import 'screens/survey-detail';
 @import 'screens/survey-list';
 @import 'screens/survey';

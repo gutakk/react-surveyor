@@ -1,0 +1,5 @@
+.survey-detail {
+  &__content {
+    @include container-survey-content()
+  }
+}
