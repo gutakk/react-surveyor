@@ -17,7 +17,6 @@ const Survey = ({ surveyList }: SurveyProps): JSX.Element => {
     <Background
       backgroundImage={surveyBackgroundContext.state.currentBackground}
       pageClassName="survey"
-      context="survey"
       dataTestID="survey"
     >
       <SurveyHeader />

@@ -13,19 +13,16 @@
   &__overlay {
     @include position-absolute();
     display: flex;
-    
+    flex-direction: column;
+    padding: rem(32px);
+
     background: linear-gradient(180deg, map-get($brand-black, 'light-2') 0%, map-get($brand-black, 'primary') 100%);
     backdrop-filter: blur(rem(50px));
     mix-blend-mode: normal;
 
-    &--auth {
+    &--center {
       align-items: center;
       justify-content: center;
-    }
-
-    &--survey {
-      flex-direction: column;
-      padding: rem(32px);
     }
   }
 }

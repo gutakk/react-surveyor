@@ -3,15 +3,15 @@ import React from 'react'
 type BackgroundProps = {
   backgroundImage: string
   pageClassName: string
-  context: string
   dataTestID: string
+  isContentCenter?: boolean
   children: JSX.Element | JSX.Element[]
 }
 
 const Background = ({
   backgroundImage,
   pageClassName,
-  context,
+  isContentCenter,
   dataTestID,
   children
 }: BackgroundProps): JSX.Element => {
@@ -22,7 +22,7 @@ const Background = ({
         style={{ backgroundImage: `url(${backgroundImage})` }}
         data-test-id="backgroundImage"
       >
-        <div className={`background__overlay background__overlay--${context}`}>{children}</div>
+        <div className={`background__overlay background__overlay${isContentCenter ? '--center' : ''}`}>{children}</div>
       </div>
     </div>
   )

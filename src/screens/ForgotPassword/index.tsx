@@ -15,8 +15,8 @@ const ForgotPassword = (): JSX.Element => {
     <Background
       backgroundImage={authBackground}
       pageClassName="forgot-password"
-      context="auth"
       dataTestID="forgotPassword"
+      isContentCenter={true}
     >
       <BackButton />
       <div className="container-auth">
