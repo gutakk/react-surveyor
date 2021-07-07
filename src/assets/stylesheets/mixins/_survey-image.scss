@@ -1,0 +1,10 @@
+@mixin survey-image() {
+  width: 100%;
+  height: rem(200px);
+
+  border-radius: rem(12px);
+
+  @include media-breakpoint-up(sm) {
+    height: rem(302px);
+  }
+}

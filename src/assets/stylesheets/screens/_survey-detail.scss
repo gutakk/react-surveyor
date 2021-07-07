@@ -1,5 +1,10 @@
 .survey-detail {
   &__content {
-    @include container-survey-content()
+    @include container-survey-content();
+    justify-content: center;
+  }
+
+  &__image {
+    @include survey-image();
   }
 }
