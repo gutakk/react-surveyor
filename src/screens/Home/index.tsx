@@ -1,12 +1,12 @@
 import React from 'react'
 
-import { GetSurveyList } from 'adapters/survey'
+import { FetchSurveyList } from 'adapters/survey'
 import LazyLoader from 'components/LazyLoader'
 import { SurveyBackgroundProvider } from 'contexts/surveyBackground'
 import Survey from 'screens/Home/survey'
 
 const Home = (): JSX.Element => {
-  const { data, loading, error } = GetSurveyList()
+  const { data, loading, error } = FetchSurveyList()
 
   if (loading) return <LazyLoader />
   if (error?.networkError?.message.includes('401')) {

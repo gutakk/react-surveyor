@@ -60,7 +60,7 @@ type GraphQLUseQuery = {
 }
 /* eslint-enable  @typescript-eslint/no-explicit-any */
 
-export const GetSurveyList = (): GraphQLUseQuery => {
+export const FetchSurveyList = (): GraphQLUseQuery => {
   const { data, loading, error } = useQuery(SurveyAdapter.getSurveyListQuery(), {
     variables: {
       isActive: true
