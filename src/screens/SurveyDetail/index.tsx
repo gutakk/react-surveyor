@@ -1,8 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 
-import { gql, useQuery } from '@apollo/client'
-
+import { FetchSurveyDetail } from 'adapters/survey'
 import BackButton from 'components/BackButton'
 import Background from 'components/Background'
 import LazyLoader from 'components/LazyLoader'
@@ -13,18 +12,8 @@ type SurveyDetailParams = {
 
 const SurveyDetail = (): JSX.Element => {
   const { surveyID } = useParams<SurveyDetailParams>()
-  const GET_SURVEY_DETAIL = gql`
-  query Survey {
-    survey(id: "${surveyID}") {
-      id
-      title
-      description
-      coverImageUrl
-    }
-  }
-  `
 
-  const { data, loading, error } = useQuery(GET_SURVEY_DETAIL)
+  const { data, loading, error } = FetchSurveyDetail(surveyID)
   if (loading) return <LazyLoader />
   if (error?.networkError?.message.includes('401')) {
     // TODO: Redirect to home page and clear local storage (this still not working because of REFRESH action bug)

@@ -50,6 +50,19 @@ class SurveyAdapter {
       }
     `
   }
+
+  static getSurveyDetailQuery = (surveyID: string): DocumentNode => {
+    return gql`
+      query Survey {
+        survey(id: "${surveyID}") {
+          id
+          title
+          description
+          coverImageUrl
+        }
+      }
+      `
+  }
 }
 
 /* eslint-disable  @typescript-eslint/no-explicit-any */
@@ -66,6 +79,12 @@ export const FetchSurveyList = (): GraphQLUseQuery => {
       isActive: true
     }
   })
+
+  return { data, loading, error }
+}
+
+export const FetchSurveyDetail = (surveyID: string): GraphQLUseQuery => {
+  const { data, loading, error } = useQuery(SurveyAdapter.getSurveyDetailQuery(surveyID))
 
   return { data, loading, error }
 }
