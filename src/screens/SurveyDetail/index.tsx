@@ -33,10 +33,10 @@ const SurveyDetail = (): JSX.Element => {
     >
       <BackButton />
       <div className="survey-detail__content">
-        <img src={data.survey.coverImageUrl} alt={data.survey.title} />
-        <p>{data.survey.title}</p>
-        <p>{data.survey.description}</p>
-        <button>Start Survey</button>
+        <img className="survey-detail__image" src={data.survey.coverImageUrl} alt={data.survey.title} />
+        <p className="survey-detail__title">{data.survey.title}</p>
+        <p className="survey-detail__description">{data.survey.description}</p>
+        <button className="survey-detail__start-survey">Start Survey</button>
       </div>
     </Background>
   )
