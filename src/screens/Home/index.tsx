@@ -1,32 +1,12 @@
 import React from 'react'
 
-import { gql, useQuery } from '@apollo/client'
-
+import { GetSurveyList } from 'adapters/survey'
 import LazyLoader from 'components/LazyLoader'
 import { SurveyBackgroundProvider } from 'contexts/surveyBackground'
 import Survey from 'screens/Home/survey'
 
-export const GET_SURVEY_LIST = gql`
-  query Surveys($isActive: Boolean!) {
-    surveys @include(if: $isActive) {
-      edges {
-        node {
-          id
-          title
-          description
-          coverImageUrl
-        }
-      }
-    }
-  }
-`
-
 const Home = (): JSX.Element => {
-  const { data, loading, error } = useQuery(GET_SURVEY_LIST, {
-    variables: {
-      isActive: true
-    }
-  })
+  const { data, loading, error } = GetSurveyList()
 
   if (loading) return <LazyLoader />
   if (error?.networkError?.message.includes('401')) {

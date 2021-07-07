@@ -3,15 +3,15 @@ import React from 'react'
 import { MockedProvider } from '@apollo/client/testing'
 import { render, waitFor } from '@testing-library/react'
 
+import SurveyAdapter from 'adapters/survey'
 import Home from 'screens/Home'
-import { GET_SURVEY_LIST } from 'screens/Home'
 
 describe('given Home page is mounted', () => {
   describe('given valid survey list', () => {
     it('renders survey list page when fetched the survey list', async () => {
       const mocks = {
         request: {
-          query: GET_SURVEY_LIST,
+          query: SurveyAdapter.getSurveyListQuery(),
           variables: { isActive: true }
         },
         result: {
@@ -47,7 +47,7 @@ describe('given Home page is mounted', () => {
     it('renders loading screen', () => {
       const mocks = {
         request: {
-          query: GET_SURVEY_LIST,
+          query: SurveyAdapter.getSurveyListQuery(),
           variables: { isActive: true }
         },
         result: {
@@ -83,7 +83,7 @@ describe('given Home page is mounted', () => {
     it('renders blank survey', async () => {
       const mocks = {
         request: {
-          query: GET_SURVEY_LIST,
+          query: SurveyAdapter.getSurveyListQuery(),
           variables: { isActive: true }
         },
         result: {
@@ -110,7 +110,7 @@ describe('given Home page is mounted', () => {
     it('renders loading screen', () => {
       const mocks = {
         request: {
-          query: GET_SURVEY_LIST,
+          query: SurveyAdapter.getSurveyListQuery(),
           variables: { isActive: true }
         },
         result: {
@@ -137,7 +137,7 @@ describe('given Home page is mounted', () => {
     it('renders unauthorized content', async () => {
       const mocks = {
         request: {
-          query: GET_SURVEY_LIST,
+          query: SurveyAdapter.getSurveyListQuery(),
           variables: { isActive: true }
         },
         // This is the error return from Apollo when status code is 401
@@ -161,7 +161,7 @@ describe('given Home page is mounted', () => {
     it('renders something went wrong content', async () => {
       const mocks = {
         request: {
-          query: GET_SURVEY_LIST,
+          query: SurveyAdapter.getSurveyListQuery(),
           variables: { isActive: true }
         },
         // This is the error return from Apollo when status code is 500
@@ -185,7 +185,7 @@ describe('given Home page is mounted', () => {
     it('renders something went wrong content', async () => {
       const mocks = {
         request: {
-          query: GET_SURVEY_LIST,
+          query: SurveyAdapter.getSurveyListQuery(),
           variables: { isActive: true }
         },
         errors: []

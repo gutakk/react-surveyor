@@ -1,4 +1,13 @@
-import { ApolloClient, InMemoryCache, HttpLink, NormalizedCacheObject } from '@apollo/client'
+import {
+  ApolloClient,
+  InMemoryCache,
+  HttpLink,
+  NormalizedCacheObject,
+  gql,
+  useQuery,
+  DocumentNode,
+  ApolloError
+} from '@apollo/client'
 import { setContext } from '@apollo/client/link/context'
 
 class SurveyAdapter {
@@ -24,6 +33,41 @@ class SurveyAdapter {
 
     return client
   }
+
+  static getSurveyListQuery = (): DocumentNode => {
+    return gql`
+      query Surveys($isActive: Boolean!) {
+        surveys @include(if: $isActive) {
+          edges {
+            node {
+              id
+              title
+              description
+              coverImageUrl
+            }
+          }
+        }
+      }
+    `
+  }
+}
+
+/* eslint-disable  @typescript-eslint/no-explicit-any */
+type GraphQLUseQuery = {
+  data: any | undefined
+  loading: boolean
+  error?: ApolloError
+}
+/* eslint-enable  @typescript-eslint/no-explicit-any */
+
+export const GetSurveyList = (): GraphQLUseQuery => {
+  const { data, loading, error } = useQuery(SurveyAdapter.getSurveyListQuery(), {
+    variables: {
+      isActive: true
+    }
+  })
+
+  return { data, loading, error }
 }
 
 export default SurveyAdapter
