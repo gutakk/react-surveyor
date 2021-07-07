@@ -25,12 +25,7 @@ const SurveyDetail = (): JSX.Element => {
   }
 
   return (
-    <Background
-      backgroundImage={data.survey.coverImageUrl}
-      pageClassName="survey-detail"
-      context="survey"
-      dataTestID="surveyDetail"
-    >
+    <Background backgroundImage={data.survey.coverImageUrl} pageClassName="survey-detail" dataTestID="surveyDetail">
       <BackButton />
       <div className="survey-detail__content">
         <img src={data.survey.coverImageUrl} alt={data.survey.title} />
