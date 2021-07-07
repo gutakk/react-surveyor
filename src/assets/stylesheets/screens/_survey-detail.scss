@@ -18,4 +18,8 @@
       font-size: map-get($font-size, 'xxl');
     }
   }
+
+  &__description {
+    @include survey-description();
+  }
 }
