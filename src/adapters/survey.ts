@@ -51,17 +51,17 @@ class SurveyAdapter {
     `
   }
 
-  static getSurveyDetailQuery = (surveyID: string): DocumentNode => {
+  static getSurveyDetailQuery = (): DocumentNode => {
     return gql`
-      query Survey {
-        survey(id: "${surveyID}") {
+      query Survey($surveyID: ID!) {
+        survey(id: $surveyID) {
           id
           title
           description
           coverImageUrl
         }
       }
-      `
+    `
   }
 }
 
@@ -84,7 +84,11 @@ export const FetchSurveyList = (): GraphQLUseQuery => {
 }
 
 export const FetchSurveyDetail = (surveyID: string): GraphQLUseQuery => {
-  const { data, loading, error } = useQuery(SurveyAdapter.getSurveyDetailQuery(surveyID))
+  const { data, loading, error } = useQuery(SurveyAdapter.getSurveyDetailQuery(), {
+    variables: {
+      surveyID: surveyID
+    }
+  })
 
   return { data, loading, error }
 }
