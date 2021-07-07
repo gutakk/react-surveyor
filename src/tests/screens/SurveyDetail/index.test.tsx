@@ -21,7 +21,7 @@ describe('given SurveyDetail page is mounted', () => {
             survey: {
               id: '1',
               title: 'Scarlett Bangkok',
-              description: 'We\'d love ot hear from you!',
+              description: 'We would love ot hear from you!',
               coverImageUrl: 'https://dhdbhh0jsld0o.cloudfront.net/m/1ea51560991bcb7d00d0_'
             }
           }
@@ -30,7 +30,7 @@ describe('given SurveyDetail page is mounted', () => {
 
       const { getByTestId } = render(
         <MemoryRouter initialEntries={[`survey/${surveyID}`]}>
-          <Route path='survey/:surveyID'>
+          <Route path="survey/:surveyID">
             <MockedProvider mocks={[mocks]} addTypename={false}>
               <SurveyDetail />
             </MockedProvider>
@@ -59,7 +59,7 @@ describe('given SurveyDetail page is mounted', () => {
 
       const { getByText } = render(
         <MemoryRouter initialEntries={[`survey/${surveyID}`]}>
-          <Route path='survey/:surveyID'>
+          <Route path="survey/:surveyID">
             <MockedProvider mocks={[mocks]} addTypename={false}>
               <SurveyDetail />
             </MockedProvider>
@@ -88,7 +88,7 @@ describe('given SurveyDetail page is mounted', () => {
 
       const { getByText } = render(
         <MemoryRouter initialEntries={[`survey/${surveyID}`]}>
-          <Route path='survey/:surveyID'>
+          <Route path="survey/:surveyID">
             <MockedProvider mocks={[mocks]} addTypename={false}>
               <SurveyDetail />
             </MockedProvider>
@@ -116,7 +116,7 @@ describe('given SurveyDetail page is mounted', () => {
 
       const { getByText } = render(
         <MemoryRouter initialEntries={[`survey/${surveyID}`]}>
-          <Route path='survey/:surveyID'>
+          <Route path="survey/:surveyID">
             <MockedProvider mocks={[mocks]} addTypename={false}>
               <SurveyDetail />
             </MockedProvider>
