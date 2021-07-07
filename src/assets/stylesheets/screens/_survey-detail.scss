@@ -22,4 +22,15 @@
   &__description {
     @include survey-description();
   }
+
+  &__start-survey {
+    height: rem(56px);
+    margin-top: rem(32px);
+    padding-top: rem(14px);
+    padding-bottom: rem(14px);
+
+    border-radius: rem(10px);
+
+    font-size: map-get($font-size, 's');
+  }
 }
