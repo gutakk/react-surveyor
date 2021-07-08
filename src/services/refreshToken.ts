@@ -3,7 +3,7 @@ import { AxiosResponse } from 'axios'
 import AuthAdapter from 'adapters/auth'
 import LocalStorage from 'services/localStorage'
 
-const refreshAccessToken = async () => {
+const refreshAccessToken = async (): Promise<void> => {
   await AuthAdapter.refreshAccessToken()
     .then(function (response: AxiosResponse) {
       if (response.status === 200) {
