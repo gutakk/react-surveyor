@@ -9,19 +9,19 @@ describe('LocalStorage service', () => {
     describe('given valid key pair', () => {
       it('returns correct value', () => {
         localStorage.setItem('test-key', 'test-value')
-  
+
         const result = LocalStorage.get('test-key')
-  
+
         expect(result).toEqual('test-value')
       })
     })
-  
+
     describe('given invalid key pair', () => {
       it('returns null', () => {
         localStorage.setItem('test-key', 'test-value')
-  
+
         const result = LocalStorage.get('invalid-key')
-  
+
         expect(result).toBeNull()
       })
     })
@@ -68,11 +68,11 @@ describe('LocalStorage service', () => {
       LocalStorage.setToken('test-access', 'test-refresh', 'test-token-type')
       LocalStorage.set('lastVisitedRoute', 'test-route')
 
-      expect(localStorage.length).toBe(4)
+      expect(localStorage).toHaveLength(4)
 
       LocalStorage.clear()
 
-      expect(localStorage.length).toBe(0)
+      expect(localStorage).toHaveLength(0)
     })
   })
 })
