@@ -10,13 +10,13 @@ const refreshAccessToken = async () => {
         /* eslint-disable camelcase */
         const { access_token, refresh_token, token_type } = response.data.data.attributes
         LocalStorage.setToken(access_token, refresh_token, token_type)
+        window.location.href = LocalStorage.get('lastVisitedRoute') || '/'
       }
     })
     .catch(function () {
       LocalStorage.clear()
+      window.location.href = '/sign-in'
     })
-
-  window.location.href = LocalStorage.get('lastVisitedRoute') || '/'
 }
 
 export default refreshAccessToken
