@@ -42,6 +42,21 @@ class AuthAdapter {
 
     return requestManager('POST', `${process.env.REACT_APP_NIMBLE_SURVEY_BASE_URL}/api/v1/passwords`, requestOptions)
   }
+
+  static refreshAccessToken = (): Promise<AxiosResponse> => {
+    const requestOptions = {
+      headers: {
+        ...postWithJsonBodyHeaders
+      },
+      data: {
+        grant_type: 'refresh_token',
+        refresh_token: localStorage.getItem('refresh_token'),
+        ...AuthAdapter.DEFAULT_PAYLOAD
+      }
+    }
+
+    return requestManager('POST', `${process.env.REACT_APP_NIMBLE_SURVEY_BASE_URL}/api/v1/oauth/token`, requestOptions)
+  }
 }
 
 export default AuthAdapter
