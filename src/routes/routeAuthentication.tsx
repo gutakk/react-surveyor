@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { Route, Redirect } from 'react-router-dom'
 
 import { AuthContext } from 'contexts/auth'
+import LocalStorage from 'services/localStorage'
 
 type RouteAuthentication = {
   component: () => JSX.Element
@@ -11,7 +12,7 @@ type RouteAuthentication = {
 
 const PrivateRoute = ({ ...props }: RouteAuthentication): JSX.Element => {
   const { state } = useContext(AuthContext)
-  localStorage.setItem('lastVisitedRoute', window.location.pathname)
+  LocalStorage.set('lastVisitedRoute', window.location.pathname)
 
   if (state.isAuthenticated) {
     return <Route {...props} />
@@ -21,7 +22,7 @@ const PrivateRoute = ({ ...props }: RouteAuthentication): JSX.Element => {
 
 const PublicRoute = ({ ...props }: RouteAuthentication): JSX.Element => {
   const { state } = useContext(AuthContext)
-  const lastVisitedRoute = localStorage.getItem('lastVisitedRoute') || '/'
+  const lastVisitedRoute = LocalStorage.get('lastVisitedRoute') || '/'
 
   if (!state.isAuthenticated) {
     return <Route {...props} />

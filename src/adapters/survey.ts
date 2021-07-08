@@ -12,6 +12,7 @@ import {
 import { setContext } from '@apollo/client/link/context'
 import { onError } from '@apollo/client/link/error'
 
+import LocalStorage from 'services/localStorage'
 import refreshAccessToken from 'services/refreshToken'
 
 class SurveyAdapter {
@@ -21,7 +22,7 @@ class SurveyAdapter {
     })
 
     const authLink = setContext((_, { headers }) => {
-      const token = localStorage.getItem('access_token')
+      const token = LocalStorage.get('access_token')
       return {
         headers: {
           ...headers,

@@ -4,6 +4,7 @@ import { AxiosResponse } from 'axios'
 
 import { postWithJsonBodyHeaders } from 'adapters/headers'
 import requestManager from 'lib/requestManager'
+import LocalStorage from 'services/localStorage'
 
 class AuthAdapter {
   static DEFAULT_PAYLOAD = {
@@ -50,7 +51,7 @@ class AuthAdapter {
       },
       data: {
         grant_type: 'refresh_token',
-        refresh_token: localStorage.getItem('refresh_token'),
+        refresh_token: LocalStorage.get('refresh_token'),
         ...AuthAdapter.DEFAULT_PAYLOAD
       }
     }
