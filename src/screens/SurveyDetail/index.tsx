@@ -5,7 +5,6 @@ import { FetchSurveyDetail } from 'adapters/survey'
 import BackButton from 'components/BackButton'
 import Background from 'components/Background'
 import LazyLoader from 'components/LazyLoader'
-import refreshAccessToken from 'services/refreshToken'
 
 type SurveyDetailParams = {
   surveyID: string
@@ -17,7 +16,6 @@ const SurveyDetail = (): JSX.Element => {
   const { data, loading, error } = FetchSurveyDetail(surveyID)
   if (loading) return <LazyLoader />
   if (error?.networkError?.message.includes('401')) {
-    refreshAccessToken()
     return <LazyLoader />
   }
   if (error) {

@@ -4,14 +4,12 @@ import { FetchSurveyList } from 'adapters/survey'
 import LazyLoader from 'components/LazyLoader'
 import { SurveyBackgroundProvider } from 'contexts/surveyBackground'
 import Survey from 'screens/Home/survey'
-import refreshAccessToken from 'services/refreshToken'
 
 const Home = (): JSX.Element => {
   const { data, loading, error } = FetchSurveyList()
 
   if (loading) return <LazyLoader />
   if (error?.networkError?.message.includes('401')) {
-    refreshAccessToken()
     return <LazyLoader />
   }
   if (error) {
