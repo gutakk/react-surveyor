@@ -1,0 +1,11 @@
+{
+  "errors": [
+    {
+      "message": "The access token expired",
+      "extensions": {
+        "code": "invalid_token",
+        "state": "unauthorized"
+      }
+    }
+  ]
+}
