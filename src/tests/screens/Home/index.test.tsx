@@ -1,20 +1,24 @@
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
 
 import { MockedProvider } from '@apollo/client/testing'
 import { render, waitFor } from '@testing-library/react'
 
 import Home from 'screens/Home'
-import homeResponse, { homeResponseType } from 'tests/fixtures/homeResponse'
+import { graphQLErrorType } from 'tests/fixtures/graphqlResponse'
+import { homeSuccessResponse, homeErrorResponse } from 'tests/fixtures/homeResponse'
 
 describe('given Home page is mounted', () => {
   describe('given survey list being fetched', () => {
     it('renders loading screen', () => {
-      const mocks = { ...homeResponse(homeResponseType.valid) }
+      const mocks = { ...homeSuccessResponse() }
 
       const { getByTestId } = render(
-        <MockedProvider mocks={[mocks]} addTypename={false}>
-          <Home />
-        </MockedProvider>
+        <BrowserRouter>
+          <MockedProvider mocks={[mocks]} addTypename={false}>
+            <Home />
+          </MockedProvider>
+        </BrowserRouter>
       )
 
       const lazyLoader = getByTestId('lazyLoader')
@@ -24,12 +28,14 @@ describe('given Home page is mounted', () => {
 
   describe('given unautorized response', () => {
     it('renders unauthorized content', async () => {
-      const mocks = { ...homeResponse(homeResponseType.unauthorized) }
+      const mocks = { ...homeErrorResponse(graphQLErrorType.unauthorized) }
 
       const { getByText } = render(
-        <MockedProvider mocks={[mocks]} addTypename={false}>
-          <Home />
-        </MockedProvider>
+        <BrowserRouter>
+          <MockedProvider mocks={[mocks]} addTypename={false}>
+            <Home />
+          </MockedProvider>
+        </BrowserRouter>
       )
 
       await waitFor(() => new Promise((res) => setTimeout(res, 0)))
@@ -41,12 +47,14 @@ describe('given Home page is mounted', () => {
 
   describe('given other network error response', () => {
     it('renders something went wrong content', async () => {
-      const mocks = { ...homeResponse(homeResponseType.networkError) }
+      const mocks = { ...homeErrorResponse(graphQLErrorType.networkError) }
 
       const { getByText } = render(
-        <MockedProvider mocks={[mocks]} addTypename={false}>
-          <Home />
-        </MockedProvider>
+        <BrowserRouter>
+          <MockedProvider mocks={[mocks]} addTypename={false}>
+            <Home />
+          </MockedProvider>
+        </BrowserRouter>
       )
 
       await waitFor(() => new Promise((res) => setTimeout(res, 0)))
@@ -58,12 +66,14 @@ describe('given Home page is mounted', () => {
 
   describe('given graphql error response', () => {
     it('renders something went wrong content', async () => {
-      const mocks = { ...homeResponse(homeResponseType.graphqlError) }
+      const mocks = { ...homeErrorResponse(graphQLErrorType.graphqlError) }
 
       const { getByText } = render(
-        <MockedProvider mocks={[mocks]} addTypename={false}>
-          <Home />
-        </MockedProvider>
+        <BrowserRouter>
+          <MockedProvider mocks={[mocks]} addTypename={false}>
+            <Home />
+          </MockedProvider>
+        </BrowserRouter>
       )
 
       await waitFor(() => new Promise((res) => setTimeout(res, 0)))

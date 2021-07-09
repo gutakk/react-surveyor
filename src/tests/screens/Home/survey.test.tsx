@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
 
 import { render } from '@testing-library/react'
 
@@ -9,21 +10,33 @@ import surveyListResponse from 'tests/fixtures/surveyListResponse.json'
 describe('given survey page is mounted', () => {
   describe('given valid survey list', () => {
     it('renders survey header', () => {
-      const { getByTestId } = render(<Survey surveyList={surveyListResponse} />)
+      const { getByTestId } = render(
+        <BrowserRouter>
+          <Survey surveyList={surveyListResponse} />
+        </BrowserRouter>
+      )
       const surveyHeader = getByTestId('surveyHeader')
 
       expect(surveyHeader).toBeInTheDocument()
     })
 
     it('renders survey time', () => {
-      const { getByTestId } = render(<Survey surveyList={surveyListResponse} />)
+      const { getByTestId } = render(
+        <BrowserRouter>
+          <Survey surveyList={surveyListResponse} />
+        </BrowserRouter>
+      )
       const surveyTime = getByTestId('surveyTime')
 
       expect(surveyTime).toBeInTheDocument()
     })
 
     it('renders surveyList', () => {
-      const { getByTestId } = render(<Survey surveyList={surveyListResponse} />)
+      const { getByTestId } = render(
+        <BrowserRouter>
+          <Survey surveyList={surveyListResponse} />
+        </BrowserRouter>
+      )
       const surveyListPage = getByTestId('surveyList')
 
       expect(surveyListPage).toBeInTheDocument()
@@ -35,9 +48,11 @@ describe('given survey page is mounted', () => {
       const dispatch = () => null
 
       const { getByTestId } = render(
-        <SurveyBackgroundContext.Provider value={{ state, dispatch }}>
-          <Survey surveyList={surveyListResponse} />
-        </SurveyBackgroundContext.Provider>
+        <BrowserRouter>
+          <SurveyBackgroundContext.Provider value={{ state, dispatch }}>
+            <Survey surveyList={surveyListResponse} />
+          </SurveyBackgroundContext.Provider>
+        </BrowserRouter>
       )
       const surveyPage = getByTestId('backgroundImage')
 
@@ -47,21 +62,33 @@ describe('given survey page is mounted', () => {
 
   describe('given empty survey list', () => {
     it('renders survey header', () => {
-      const { getByTestId } = render(<Survey surveyList={[]} />)
+      const { getByTestId } = render(
+        <BrowserRouter>
+          <Survey surveyList={[]} />
+        </BrowserRouter>
+      )
       const surveyHeader = getByTestId('surveyHeader')
 
       expect(surveyHeader).toBeInTheDocument()
     })
 
     it('renders survey time', () => {
-      const { getByTestId } = render(<Survey surveyList={[]} />)
+      const { getByTestId } = render(
+        <BrowserRouter>
+          <Survey surveyList={[]} />
+        </BrowserRouter>
+      )
       const surveyTime = getByTestId('surveyTime')
 
       expect(surveyTime).toBeInTheDocument()
     })
 
     it('renders blankSurvey', () => {
-      const { getByTestId } = render(<Survey surveyList={[]} />)
+      const { getByTestId } = render(
+        <BrowserRouter>
+          <Survey surveyList={[]} />
+        </BrowserRouter>
+      )
       const blankSurvey = getByTestId('blankSurvey')
 
       expect(blankSurvey).toBeInTheDocument()
@@ -72,9 +99,11 @@ describe('given survey page is mounted', () => {
       const dispatch = () => null
 
       const { getByTestId } = render(
-        <SurveyBackgroundContext.Provider value={{ state, dispatch }}>
-          <Survey surveyList={[]} />
-        </SurveyBackgroundContext.Provider>
+        <BrowserRouter>
+          <SurveyBackgroundContext.Provider value={{ state, dispatch }}>
+            <Survey surveyList={[]} />
+          </SurveyBackgroundContext.Provider>
+        </BrowserRouter>
       )
       const surveyPage = getByTestId('backgroundImage')
 

@@ -32,6 +32,7 @@ const AuthReducer = (state: AuthState, action: ActionType): AuthState => {
       localStorage.removeItem('access_token')
       localStorage.removeItem('refresh_token')
       localStorage.removeItem('token_type')
+      localStorage.removeItem('lastVisitedRoute')
 
       return { ...state, isAuthenticated: false }
     }

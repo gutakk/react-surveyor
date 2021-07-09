@@ -11,6 +11,8 @@ type RouteAuthentication = {
 
 const PrivateRoute = ({ ...props }: RouteAuthentication): JSX.Element => {
   const { state } = useContext(AuthContext)
+  localStorage.setItem('lastVisitedRoute', window.location.pathname)
+
   if (state.isAuthenticated) {
     return <Route {...props} />
   }
@@ -19,10 +21,12 @@ const PrivateRoute = ({ ...props }: RouteAuthentication): JSX.Element => {
 
 const PublicRoute = ({ ...props }: RouteAuthentication): JSX.Element => {
   const { state } = useContext(AuthContext)
+  const lastVisitedRoute = localStorage.getItem('lastVisitedRoute') || '/'
+
   if (!state.isAuthenticated) {
     return <Route {...props} />
   }
-  return <Redirect to="/" />
+  return <Redirect to={lastVisitedRoute} />
 }
 
 export { PrivateRoute, PublicRoute }
