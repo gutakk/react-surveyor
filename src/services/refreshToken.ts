@@ -5,7 +5,7 @@ import LocalStorage from 'services/localStorage'
 
 const refreshAccessToken = async (): Promise<void> => {
   await AuthAdapter.refreshAccessToken()
-    .then(function (response: AxiosResponse) {
+    .then((response: AxiosResponse) => {
       if (response.status === 200) {
         /* eslint-disable camelcase */
         const { access_token, refresh_token, token_type } = response.data.data.attributes
@@ -13,7 +13,7 @@ const refreshAccessToken = async (): Promise<void> => {
         window.location.href = LocalStorage.get('lastVisitedRoute') || '/'
       }
     })
-    .catch(function () {
+    .catch(() => {
       LocalStorage.clear()
       window.location.href = '/sign-in'
     })
