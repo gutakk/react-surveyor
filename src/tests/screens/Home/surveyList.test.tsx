@@ -6,7 +6,7 @@ import SurveyList from 'screens/Home/surveyList'
 
 describe('given surveyList page is mounted', () => {
   describe('given valid survey list', () => {
-    it('renders two surveys', () => {
+    it('renders the surveys', () => {
       const surveyList = [
         {
           node: {
