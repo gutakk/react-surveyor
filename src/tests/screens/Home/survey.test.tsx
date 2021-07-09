@@ -4,55 +4,26 @@ import { render } from '@testing-library/react'
 
 import { SurveyBackgroundContext } from 'contexts/surveyBackground'
 import Survey from 'screens/Home/survey'
+import surveyListResponse from 'tests/fixtures/surveyListResponse.json'
 
 describe('given survey page is mounted', () => {
   describe('given valid survey list', () => {
     it('renders survey header', () => {
-      const surveyList = [
-        {
-          node: {
-            id: '1',
-            title: 'title-1',
-            description: 'description-1',
-            coverImageUrl: 'image-1'
-          }
-        }
-      ]
-      const { getByTestId } = render(<Survey surveyList={surveyList} />)
+      const { getByTestId } = render(<Survey surveyList={surveyListResponse} />)
       const surveyHeader = getByTestId('surveyHeader')
 
       expect(surveyHeader).toBeInTheDocument()
     })
 
     it('renders survey time', () => {
-      const surveyList = [
-        {
-          node: {
-            id: '1',
-            title: 'title-1',
-            description: 'description-1',
-            coverImageUrl: 'image-1'
-          }
-        }
-      ]
-      const { getByTestId } = render(<Survey surveyList={surveyList} />)
+      const { getByTestId } = render(<Survey surveyList={surveyListResponse} />)
       const surveyTime = getByTestId('surveyTime')
 
       expect(surveyTime).toBeInTheDocument()
     })
 
     it('renders surveyList', () => {
-      const surveyList = [
-        {
-          node: {
-            id: '1',
-            title: 'title-1',
-            description: 'description-1',
-            coverImageUrl: 'image-1'
-          }
-        }
-      ]
-      const { getByTestId } = render(<Survey surveyList={surveyList} />)
+      const { getByTestId } = render(<Survey surveyList={surveyListResponse} />)
       const surveyListPage = getByTestId('surveyList')
 
       expect(surveyListPage).toBeInTheDocument()
@@ -60,22 +31,12 @@ describe('given survey page is mounted', () => {
 
     it('renders correct survey background', () => {
       const coverImageUrl = 'image-1'
-      const surveyList = [
-        {
-          node: {
-            id: '1',
-            title: 'title-1',
-            description: 'description-1',
-            coverImageUrl: coverImageUrl
-          }
-        }
-      ]
       const state = { currentBackground: coverImageUrl }
       const dispatch = () => null
 
       const { getByTestId } = render(
         <SurveyBackgroundContext.Provider value={{ state, dispatch }}>
-          <Survey surveyList={surveyList} />
+          <Survey surveyList={surveyListResponse} />
         </SurveyBackgroundContext.Provider>
       )
       const surveyPage = getByTestId('survey')
