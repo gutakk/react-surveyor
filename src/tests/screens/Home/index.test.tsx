@@ -3,59 +3,13 @@ import React from 'react'
 import { MockedProvider } from '@apollo/client/testing'
 import { render, waitFor } from '@testing-library/react'
 
-import SurveyAdapter from 'adapters/survey'
 import Home from 'screens/Home'
-import surveyListResponse, { surveyListResponseType } from 'tests/fixtures/surveyListResponse'
+import homeResponse, { homeResponseType } from 'tests/fixtures/homeResponse'
 
 describe('given Home page is mounted', () => {
-  describe('given valid survey list', () => {
-    it('renders survey list page when fetched the survey list', async () => {
-      const mocks = { ...surveyListResponse(surveyListResponseType.valid) }
-
-      const { getByTestId } = render(
-        <MockedProvider mocks={[mocks]} addTypename={false}>
-          <Home />
-        </MockedProvider>
-      )
-
-      await waitFor(() => new Promise((res) => setTimeout(res, 0)))
-
-      const surveyList = getByTestId('surveyList')
-      expect(surveyList).toBeInTheDocument()
-    })
-
+  describe('given survey list being fetched', () => {
     it('renders loading screen', () => {
-      const mocks = { ...surveyListResponse(surveyListResponseType.valid) }
-
-      const { getByTestId } = render(
-        <MockedProvider mocks={[mocks]} addTypename={false}>
-          <Home />
-        </MockedProvider>
-      )
-
-      const lazyLoader = getByTestId('lazyLoader')
-      expect(lazyLoader).toBeInTheDocument()
-    })
-  })
-
-  describe('given empty survey list', () => {
-    it('renders blank survey', async () => {
-      const mocks = { ...surveyListResponse(surveyListResponseType.empty) }
-
-      const { getByTestId } = render(
-        <MockedProvider mocks={[mocks]} addTypename={false}>
-          <Home />
-        </MockedProvider>
-      )
-
-      await waitFor(() => new Promise((res) => setTimeout(res, 0)))
-
-      const blankSurvey = getByTestId('blankSurvey')
-      expect(blankSurvey).toBeInTheDocument()
-    })
-
-    it('renders loading screen', () => {
-      const mocks = { ...surveyListResponse(surveyListResponseType.empty) }
+      const mocks = { ...homeResponse(homeResponseType.valid) }
 
       const { getByTestId } = render(
         <MockedProvider mocks={[mocks]} addTypename={false}>
@@ -70,7 +24,7 @@ describe('given Home page is mounted', () => {
 
   describe('given unautorized response', () => {
     it('renders unauthorized content', async () => {
-      const mocks = { ...surveyListResponse(surveyListResponseType.unauthorized) }
+      const mocks = { ...homeResponse(homeResponseType.unauthorized) }
 
       const { getByText } = render(
         <MockedProvider mocks={[mocks]} addTypename={false}>
@@ -87,7 +41,7 @@ describe('given Home page is mounted', () => {
 
   describe('given other network error response', () => {
     it('renders something went wrong content', async () => {
-      const mocks = { ...surveyListResponse(surveyListResponseType.networkError) }
+      const mocks = { ...homeResponse(homeResponseType.networkError) }
 
       const { getByText } = render(
         <MockedProvider mocks={[mocks]} addTypename={false}>
@@ -104,7 +58,7 @@ describe('given Home page is mounted', () => {
 
   describe('given graphql error response', () => {
     it('renders something went wrong content', async () => {
-      const mocks = { ...surveyListResponse(surveyListResponseType.graphqlError) }
+      const mocks = { ...homeResponse(homeResponseType.graphqlError) }
 
       const { getByText } = render(
         <MockedProvider mocks={[mocks]} addTypename={false}>
