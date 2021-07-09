@@ -5,32 +5,12 @@ import { render, waitFor } from '@testing-library/react'
 
 import SurveyAdapter from 'adapters/survey'
 import Home from 'screens/Home'
+import surveyListResponse, { surveyListResponseType } from 'tests/fixtures/surveyListResponse'
 
 describe('given Home page is mounted', () => {
   describe('given valid survey list', () => {
     it('renders survey list page when fetched the survey list', async () => {
-      const mocks = {
-        request: {
-          query: SurveyAdapter.getSurveyListQuery(),
-          variables: { isActive: true }
-        },
-        result: {
-          data: {
-            surveys: {
-              edges: [
-                {
-                  node: {
-                    id: '1',
-                    title: 'title-1',
-                    description: 'description-1',
-                    coverImageUrl: 'image-1'
-                  }
-                }
-              ]
-            }
-          }
-        }
-      }
+      const mocks = { ...surveyListResponse(surveyListResponseType.valid) }
 
       const { getByTestId } = render(
         <MockedProvider mocks={[mocks]} addTypename={false}>
@@ -45,28 +25,7 @@ describe('given Home page is mounted', () => {
     })
 
     it('renders loading screen', () => {
-      const mocks = {
-        request: {
-          query: SurveyAdapter.getSurveyListQuery(),
-          variables: { isActive: true }
-        },
-        result: {
-          data: {
-            surveys: {
-              edges: [
-                {
-                  node: {
-                    id: '1',
-                    title: 'title-1',
-                    description: 'description-1',
-                    coverImageUrl: 'image-1'
-                  }
-                }
-              ]
-            }
-          }
-        }
-      }
+      const mocks = { ...surveyListResponse(surveyListResponseType.valid) }
 
       const { getByTestId } = render(
         <MockedProvider mocks={[mocks]} addTypename={false}>
@@ -81,19 +40,7 @@ describe('given Home page is mounted', () => {
 
   describe('given empty survey list', () => {
     it('renders blank survey', async () => {
-      const mocks = {
-        request: {
-          query: SurveyAdapter.getSurveyListQuery(),
-          variables: { isActive: true }
-        },
-        result: {
-          data: {
-            surveys: {
-              edges: []
-            }
-          }
-        }
-      }
+      const mocks = { ...surveyListResponse(surveyListResponseType.empty) }
 
       const { getByTestId } = render(
         <MockedProvider mocks={[mocks]} addTypename={false}>
@@ -108,19 +55,7 @@ describe('given Home page is mounted', () => {
     })
 
     it('renders loading screen', () => {
-      const mocks = {
-        request: {
-          query: SurveyAdapter.getSurveyListQuery(),
-          variables: { isActive: true }
-        },
-        result: {
-          data: {
-            surveys: {
-              edges: []
-            }
-          }
-        }
-      }
+      const mocks = { ...surveyListResponse(surveyListResponseType.empty) }
 
       const { getByTestId } = render(
         <MockedProvider mocks={[mocks]} addTypename={false}>
@@ -135,14 +70,7 @@ describe('given Home page is mounted', () => {
 
   describe('given unautorized response', () => {
     it('renders unauthorized content', async () => {
-      const mocks = {
-        request: {
-          query: SurveyAdapter.getSurveyListQuery(),
-          variables: { isActive: true }
-        },
-        // This is the error return from Apollo when status code is 401
-        error: new Error('Response not successful: Received status code 401')
-      }
+      const mocks = { ...surveyListResponse(surveyListResponseType.unauthorized) }
 
       const { getByText } = render(
         <MockedProvider mocks={[mocks]} addTypename={false}>
@@ -159,14 +87,7 @@ describe('given Home page is mounted', () => {
 
   describe('given other network error response', () => {
     it('renders something went wrong content', async () => {
-      const mocks = {
-        request: {
-          query: SurveyAdapter.getSurveyListQuery(),
-          variables: { isActive: true }
-        },
-        // This is the error return from Apollo when status code is 500
-        error: new Error('Response not successful: Received status code 500')
-      }
+      const mocks = { ...surveyListResponse(surveyListResponseType.networkError) }
 
       const { getByText } = render(
         <MockedProvider mocks={[mocks]} addTypename={false}>
@@ -183,13 +104,7 @@ describe('given Home page is mounted', () => {
 
   describe('given graphql error response', () => {
     it('renders something went wrong content', async () => {
-      const mocks = {
-        request: {
-          query: SurveyAdapter.getSurveyListQuery(),
-          variables: { isActive: true }
-        },
-        errors: []
-      }
+      const mocks = { ...surveyListResponse(surveyListResponseType.graphqlError) }
 
       const { getByText } = render(
         <MockedProvider mocks={[mocks]} addTypename={false}>
