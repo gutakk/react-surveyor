@@ -1,0 +1,8 @@
+@mixin survey-description() {
+  color: map-get($brand-white, 'light-1');
+  font-size: map-get($font-size, 'xxs');
+
+  @include media-breakpoint-up(sm) {
+    font-size: map-get($font-size, 's');
+  }
+}

@@ -5,14 +5,7 @@
 
   .survey-list-data {    
     &__image {
-      width: 100%;
-      height: rem(200px);
-
-      border-radius: rem(12px);
-
-      @include media-breakpoint-up(sm) {
-        height: rem(302px);
-      }
+      @include survey-image();
     }
 
     &__footer {
@@ -32,12 +25,7 @@
     }
 
     &__description {
-      color: map-get($brand-white, 'light-1');
-      font-size: map-get($font-size, 'xxs');
-
-      @include media-breakpoint-up(sm) {
-        font-size: map-get($font-size, 's');
-      }
+      @include survey-description();
     }
 
     &__next {

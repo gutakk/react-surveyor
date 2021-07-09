@@ -1,0 +1,36 @@
+.survey-detail {
+  &__content {
+    @include container-survey-content();
+    justify-content: center;
+  }
+
+  &__image {
+    @include survey-image();
+  }
+
+  &__title {
+    margin-top: rem(32px);
+    
+    font-size: map-get($font-size, 'm');
+    font-weight: map-get($font-weight, 'bold');
+
+    @include media-breakpoint-up(sm) {
+      font-size: map-get($font-size, 'xxl');
+    }
+  }
+
+  &__description {
+    @include survey-description();
+  }
+
+  &__start-survey {
+    height: rem(56px);
+    margin-top: rem(32px);
+    padding-top: rem(14px);
+    padding-bottom: rem(14px);
+
+    border-radius: rem(10px);
+
+    font-size: map-get($font-size, 's');
+  }
+}
