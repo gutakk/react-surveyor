@@ -1,6 +1,7 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 
 import Background from 'components/Background'
+import Sidebar from 'components/Sidebar'
 import SurveyHeader from 'components/SurveyHeader'
 import SurveyTime from 'components/SurveyTime'
 import { SurveyBackgroundContext } from 'contexts/surveyBackground'
@@ -12,6 +13,8 @@ type SurveyProps = {
 
 const Survey = ({ surveyList }: SurveyProps): JSX.Element => {
   const surveyBackgroundContext = useContext(SurveyBackgroundContext)
+  const [isOpenSidebar, setIsOpenSidebar] = useState(false)
+  const toggleSidebar = () => setIsOpenSidebar(!isOpenSidebar)
 
   return (
     <Background
@@ -19,7 +22,8 @@ const Survey = ({ surveyList }: SurveyProps): JSX.Element => {
       pageClassName="survey"
       dataTestID="survey"
     >
-      <SurveyHeader />
+      <Sidebar isOpen={isOpenSidebar} />
+      <SurveyHeader onUserImageClick={toggleSidebar} />
       <div className="container-survey-content">
         <SurveyTime />
         <SurveyList surveyList={surveyList} />

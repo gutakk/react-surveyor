@@ -1,0 +1,36 @@
+.sidebar {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+
+  transition: 0.2s;
+
+  background-color: rgb(30, 30, 30);
+
+  &--active {
+    width: rem(264px);
+  }
+
+  &__content {
+    padding: rem(36px 32px);
+  }
+
+  &__user {
+    font-size: map-get($font-size, 'l');
+    font-weight: map-get($font-weight, 'bold');
+  }
+
+  &__choice {
+    color: map-get($brand-white, 'light-2');
+    font-size: map-get($font-size, 'm');
+    
+    cursor: pointer;
+  }
+
+  hr {
+    border: rem(0.5px) solid map-get($brand-white, 'primary');
+  }
+}
