@@ -32,11 +32,11 @@ describe('given SurveyDetail page is mounted', () => {
   })
 
   describe('given unauthorized response', () => {
-    it('renders unauthorized content', async () => {
+    it('renders lazy loader', async () => {
       const surveyID = '1'
       const mocks = { ...surveyDetailErrorResponse(graphQLErrorType.unauthorized, surveyID) }
 
-      const { getByText } = render(
+      const { getByTestId } = render(
         <MemoryRouter initialEntries={[`survey/${surveyID}`]}>
           <Route path="survey/:surveyID">
             <MockedProvider mocks={[mocks]} addTypename={false}>
@@ -48,7 +48,7 @@ describe('given SurveyDetail page is mounted', () => {
 
       await waitFor(() => new Promise((res) => setTimeout(res, 0)))
 
-      const result = getByText('Unauthorized')
+      const result = getByTestId('lazyLoader')
       expect(result).toBeInTheDocument()
     })
   })
