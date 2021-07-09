@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
 
 import { MockedProvider } from '@apollo/client/testing'
 import { render, waitFor } from '@testing-library/react'
@@ -12,9 +13,11 @@ describe('given Home page is mounted', () => {
       const mocks = { ...homeResponse(homeResponseType.valid) }
 
       const { getByTestId } = render(
-        <MockedProvider mocks={[mocks]} addTypename={false}>
-          <Home />
-        </MockedProvider>
+        <BrowserRouter>
+          <MockedProvider mocks={[mocks]} addTypename={false}>
+            <Home />
+          </MockedProvider>
+        </BrowserRouter>
       )
 
       const lazyLoader = getByTestId('lazyLoader')
@@ -27,9 +30,11 @@ describe('given Home page is mounted', () => {
       const mocks = { ...homeResponse(homeResponseType.unauthorized) }
 
       const { getByText } = render(
-        <MockedProvider mocks={[mocks]} addTypename={false}>
-          <Home />
-        </MockedProvider>
+        <BrowserRouter>
+          <MockedProvider mocks={[mocks]} addTypename={false}>
+            <Home />
+          </MockedProvider>
+        </BrowserRouter>
       )
 
       await waitFor(() => new Promise((res) => setTimeout(res, 0)))
@@ -44,9 +49,11 @@ describe('given Home page is mounted', () => {
       const mocks = { ...homeResponse(homeResponseType.networkError) }
 
       const { getByText } = render(
-        <MockedProvider mocks={[mocks]} addTypename={false}>
-          <Home />
-        </MockedProvider>
+        <BrowserRouter>
+          <MockedProvider mocks={[mocks]} addTypename={false}>
+            <Home />
+          </MockedProvider>
+        </BrowserRouter>
       )
 
       await waitFor(() => new Promise((res) => setTimeout(res, 0)))
@@ -61,9 +68,11 @@ describe('given Home page is mounted', () => {
       const mocks = { ...homeResponse(homeResponseType.graphqlError) }
 
       const { getByText } = render(
-        <MockedProvider mocks={[mocks]} addTypename={false}>
-          <Home />
-        </MockedProvider>
+        <BrowserRouter>
+          <MockedProvider mocks={[mocks]} addTypename={false}>
+            <Home />
+          </MockedProvider>
+        </BrowserRouter>
       )
 
       await waitFor(() => new Promise((res) => setTimeout(res, 0)))

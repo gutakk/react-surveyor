@@ -1,5 +1,6 @@
 /* eslint-disable  import/no-unresolved */
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import Slider from 'react-slick'
 
 import nextIcon from 'assets/images/icons/next.svg'
@@ -21,6 +22,7 @@ type SurveyListProps = {
 }
 
 const SurveyList = ({ surveyList }: SurveyListProps): JSX.Element => {
+  const [surveyID, setSurveyID] = useState('')
   const { dispatch } = useContext(SurveyBackgroundContext)
   const slickSettings = {
     dots: true,
@@ -32,6 +34,7 @@ const SurveyList = ({ surveyList }: SurveyListProps): JSX.Element => {
     autoplay: true,
     speed: 500,
     beforeChange: (current: number, next: number) => {
+      setSurveyID(surveyList[next].node.id)
       dispatch({
         type: Constants.SURVEY_BACKGROUND,
         payload: surveyList[next].node.coverImageUrl
@@ -41,6 +44,7 @@ const SurveyList = ({ surveyList }: SurveyListProps): JSX.Element => {
 
   useEffect(() => {
     if (surveyList.length > 0) {
+      setSurveyID(surveyList[0].node.id)
       dispatch({
         type: Constants.SURVEY_BACKGROUND,
         payload: surveyList[0].node.coverImageUrl
@@ -62,9 +66,9 @@ const SurveyList = ({ surveyList }: SurveyListProps): JSX.Element => {
                       <p className="survey-list-data__title">{survey.node.title}</p>
                       <p className="survey-list-data__description">{survey.node.description}</p>
                     </div>
-                    <div className="survey-list-data__next">
+                    <Link to={`/survey/${surveyID}`} className="survey-list-data__next">
                       <img src={nextIcon} alt="Next" />
-                    </div>
+                    </Link>
                   </div>
                 </div>
               )
