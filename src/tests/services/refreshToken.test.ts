@@ -3,6 +3,7 @@
 import axios, { AxiosResponse } from 'axios'
 
 import refreshAccessToken from 'services/refreshToken'
+import oauthTokenResponse from 'tests/fixtures/oauthTokenResponse.json'
 
 jest.mock('axios')
 const mockedAxios = axios as jest.Mocked<typeof axios>
@@ -51,21 +52,7 @@ describe('refreshToken service', () => {
 
     it('redirects to home page', async () => {
       const mockedResponse: AxiosResponse = {
-        data: {
-          data: {
-            attributes: {
-              id: 1,
-              type: 'token',
-              attributes: {
-                 access_token: 'test-access-token',
-                 token_type: 'Bearer',
-                 expires_in: 99,
-                 refresh_token: 'test-refresh-token',
-                 created_at: 999
-              }
-            }
-          }
-        },
+        ...oauthTokenResponse,
         status: 200,
         statusText: 'Ok',
         headers: {},
@@ -82,21 +69,7 @@ describe('refreshToken service', () => {
       it('redirects to last visited path', async () => {
         localStorage.setItem('lastVisitedRoute', '/test-path')
         const mockedResponse: AxiosResponse = {
-          data: {
-            data: {
-              attributes: {
-                id: 1,
-                type: 'token',
-                attributes: {
-                   access_token: 'test-access-token',
-                   token_type: 'Bearer',
-                   expires_in: 99,
-                   refresh_token: 'test-refresh-token',
-                   created_at: 999
-                }
-              }
-            }
-          },
+          ...oauthTokenResponse,
           status: 200,
           statusText: 'Ok',
           headers: {},
