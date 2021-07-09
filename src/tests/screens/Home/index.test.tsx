@@ -5,12 +5,13 @@ import { MockedProvider } from '@apollo/client/testing'
 import { render, waitFor } from '@testing-library/react'
 
 import Home from 'screens/Home'
-import homeResponse, { homeResponseType } from 'tests/fixtures/homeResponse'
+import { graphQLErrorType } from 'tests/fixtures/graphqlResponse'
+import { homeSuccessResponse, homeErrorResponse } from 'tests/fixtures/homeResponse'
 
 describe('given Home page is mounted', () => {
   describe('given survey list being fetched', () => {
     it('renders loading screen', () => {
-      const mocks = { ...homeResponse(homeResponseType.valid) }
+      const mocks = { ...homeSuccessResponse() }
 
       const { getByTestId } = render(
         <BrowserRouter>
@@ -27,7 +28,7 @@ describe('given Home page is mounted', () => {
 
   describe('given unautorized response', () => {
     it('renders unauthorized content', async () => {
-      const mocks = { ...homeResponse(homeResponseType.unauthorized) }
+      const mocks = { ...homeErrorResponse(graphQLErrorType.unauthorized) }
 
       const { getByText } = render(
         <BrowserRouter>
@@ -46,7 +47,7 @@ describe('given Home page is mounted', () => {
 
   describe('given other network error response', () => {
     it('renders something went wrong content', async () => {
-      const mocks = { ...homeResponse(homeResponseType.networkError) }
+      const mocks = { ...homeErrorResponse(graphQLErrorType.networkError) }
 
       const { getByText } = render(
         <BrowserRouter>
@@ -65,7 +66,7 @@ describe('given Home page is mounted', () => {
 
   describe('given graphql error response', () => {
     it('renders something went wrong content', async () => {
-      const mocks = { ...homeResponse(homeResponseType.graphqlError) }
+      const mocks = { ...homeErrorResponse(graphQLErrorType.graphqlError) }
 
       const { getByText } = render(
         <BrowserRouter>
