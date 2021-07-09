@@ -1,6 +1,7 @@
 import React from 'react'
 import { Router } from 'react-router-dom'
 
+import { MockedProvider } from '@apollo/client/testing'
 import { render } from '@testing-library/react'
 import { createBrowserHistory } from 'history'
 
@@ -20,7 +21,9 @@ describe('routeAuthentication', () => {
       render(
         <Router history={history}>
           <AuthContext.Provider value={{ state, dispatch }}>
-            <PrivateRoute path="/" exact component={Home} />
+            <MockedProvider mocks={[]} addTypename={false}>
+              <PrivateRoute path="/" exact component={Home} />
+            </MockedProvider>
           </AuthContext.Provider>
         </Router>
       )

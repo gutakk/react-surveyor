@@ -1,14 +1,75 @@
 import React from 'react'
 
-import { render } from '@testing-library/react'
+import { MockedProvider } from '@apollo/client/testing'
+import { render, waitFor } from '@testing-library/react'
 
 import Home from 'screens/Home'
+import homeResponse, { homeResponseType } from 'tests/fixtures/homeResponse'
 
 describe('given Home page is mounted', () => {
-  it('renders survey', () => {
-    const { getByTestId } = render(<Home />)
-    const survey = getByTestId('survey')
+  describe('given survey list being fetched', () => {
+    it('renders loading screen', () => {
+      const mocks = { ...homeResponse(homeResponseType.valid) }
 
-    expect(survey).toBeInTheDocument()
+      const { getByTestId } = render(
+        <MockedProvider mocks={[mocks]} addTypename={false}>
+          <Home />
+        </MockedProvider>
+      )
+
+      const lazyLoader = getByTestId('lazyLoader')
+      expect(lazyLoader).toBeInTheDocument()
+    })
+  })
+
+  describe('given unautorized response', () => {
+    it('renders unauthorized content', async () => {
+      const mocks = { ...homeResponse(homeResponseType.unauthorized) }
+
+      const { getByText } = render(
+        <MockedProvider mocks={[mocks]} addTypename={false}>
+          <Home />
+        </MockedProvider>
+      )
+
+      await waitFor(() => new Promise((res) => setTimeout(res, 0)))
+
+      const result = getByText('Unauthorized')
+      expect(result).toBeInTheDocument()
+    })
+  })
+
+  describe('given other network error response', () => {
+    it('renders something went wrong content', async () => {
+      const mocks = { ...homeResponse(homeResponseType.networkError) }
+
+      const { getByText } = render(
+        <MockedProvider mocks={[mocks]} addTypename={false}>
+          <Home />
+        </MockedProvider>
+      )
+
+      await waitFor(() => new Promise((res) => setTimeout(res, 0)))
+
+      const result = getByText('Something went wrong')
+      expect(result).toBeInTheDocument()
+    })
+  })
+
+  describe('given graphql error response', () => {
+    it('renders something went wrong content', async () => {
+      const mocks = { ...homeResponse(homeResponseType.graphqlError) }
+
+      const { getByText } = render(
+        <MockedProvider mocks={[mocks]} addTypename={false}>
+          <Home />
+        </MockedProvider>
+      )
+
+      await waitFor(() => new Promise((res) => setTimeout(res, 0)))
+
+      const result = getByText('Something went wrong')
+      expect(result).toBeInTheDocument()
+    })
   })
 })
