@@ -1,6 +1,6 @@
 const formSelectors = {
   button: 'formButton',
-  forgotPasswordLink: 'forgotPassword',
+  forgotPasswordLink: 'forgotPasswordLink',
   emailField: 'signInEmail',
   passwordField: 'signInPassword',
   alert: 'alert'

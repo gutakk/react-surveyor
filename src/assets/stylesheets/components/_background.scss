@@ -1,3 +1,4 @@
+/* stylelint-disable max-nesting-depth */
 .background {
   @include position-absolute();
 
@@ -12,11 +13,16 @@
   &__overlay {
     @include position-absolute();
     display: flex;
-    align-items: center;
-    justify-content: center;
-    
+    flex-direction: column;
+    padding: rem(32px);
+
     background: linear-gradient(180deg, map-get($brand-black, 'light-2') 0%, map-get($brand-black, 'primary') 100%);
     backdrop-filter: blur(rem(50px));
     mix-blend-mode: normal;
+
+    &--center {
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
