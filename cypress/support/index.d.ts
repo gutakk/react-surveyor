@@ -5,5 +5,7 @@ declare namespace Cypress {
     
     mockForgotPasswordResponse(statusCode: number): Cypress.Chainable<void>
     forgotPassword(email: string): Cypress.Chainable<void>
+
+    mockSurveyListResponse(statusCode: number, fixture: string): Cypress.Chainable<void>
   }
 }
