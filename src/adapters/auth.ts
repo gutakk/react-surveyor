@@ -4,6 +4,7 @@ import { AxiosResponse } from 'axios'
 
 import { postWithJsonBodyHeaders } from 'adapters/headers'
 import requestManager from 'lib/requestManager'
+import LocalStorage from 'services/localStorage'
 
 class AuthAdapter {
   static DEFAULT_PAYLOAD = {
@@ -41,6 +42,21 @@ class AuthAdapter {
     }
 
     return requestManager('POST', `${process.env.REACT_APP_NIMBLE_SURVEY_BASE_URL}/api/v1/passwords`, requestOptions)
+  }
+
+  static refreshAccessToken = (): Promise<AxiosResponse> => {
+    const requestOptions = {
+      headers: {
+        ...postWithJsonBodyHeaders
+      },
+      data: {
+        grant_type: 'refresh_token',
+        refresh_token: LocalStorage.get('refresh_token'),
+        ...AuthAdapter.DEFAULT_PAYLOAD
+      }
+    }
+
+    return requestManager('POST', `${process.env.REACT_APP_NIMBLE_SURVEY_BASE_URL}/api/v1/oauth/token`, requestOptions)
   }
 }
 

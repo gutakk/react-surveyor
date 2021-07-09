@@ -16,8 +16,7 @@ const SurveyDetail = (): JSX.Element => {
   const { data, loading, error } = FetchSurveyDetail(surveyID)
   if (loading) return <LazyLoader />
   if (error?.networkError?.message.includes('401')) {
-    // TODO: Redirect to home page and clear local storage (this still not working because of REFRESH action bug)
-    return <p>Unauthorized</p>
+    return <LazyLoader />
   }
   if (error) {
     // TODO: Create something went wrong screen

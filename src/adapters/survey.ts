@@ -6,9 +6,14 @@ import {
   gql,
   useQuery,
   DocumentNode,
-  ApolloError
+  ApolloError,
+  from
 } from '@apollo/client'
 import { setContext } from '@apollo/client/link/context'
+import { onError } from '@apollo/client/link/error'
+
+import LocalStorage from 'services/localStorage'
+import refreshAccessToken from 'services/refreshToken'
 
 class SurveyAdapter {
   static getClient = (): ApolloClient<NormalizedCacheObject> => {
@@ -17,7 +22,7 @@ class SurveyAdapter {
     })
 
     const authLink = setContext((_, { headers }) => {
-      const token = localStorage.getItem('access_token')
+      const token = LocalStorage.get('access_token')
       return {
         headers: {
           ...headers,
@@ -26,8 +31,14 @@ class SurveyAdapter {
       }
     })
 
+    const errorLink = onError(({ networkError }) => {
+      if (networkError?.message.includes('401')) {
+        refreshAccessToken()
+      }
+    })
+
     const client = new ApolloClient({
-      link: authLink.concat(httpLink),
+      link: from([authLink, errorLink, httpLink]),
       cache: new InMemoryCache()
     })
 

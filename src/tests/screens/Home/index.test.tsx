@@ -27,10 +27,10 @@ describe('given Home page is mounted', () => {
   })
 
   describe('given unautorized response', () => {
-    it('renders unauthorized content', async () => {
+    it('renders lazy loader', async () => {
       const mocks = { ...homeErrorResponse(graphQLErrorType.unauthorized) }
 
-      const { getByText } = render(
+      const { getByTestId } = render(
         <BrowserRouter>
           <MockedProvider mocks={[mocks]} addTypename={false}>
             <Home />
@@ -40,7 +40,7 @@ describe('given Home page is mounted', () => {
 
       await waitFor(() => new Promise((res) => setTimeout(res, 0)))
 
-      const result = getByText('Unauthorized')
+      const result = getByTestId('lazyLoader')
       expect(result).toBeInTheDocument()
     })
   })

@@ -2,6 +2,7 @@ import React, { createContext, Dispatch, useReducer, useEffect } from 'react'
 
 import * as Constants from 'constants/auth'
 import AuthReducer from 'reducers/auth'
+import LocalStorage from 'services/localStorage'
 
 type AuthProvider = {
   children: JSX.Element
@@ -28,7 +29,7 @@ const AuthProvider = ({ children }: AuthProvider): JSX.Element => {
   const [state, dispatch] = useReducer(AuthReducer, initialState)
 
   useEffect(() => {
-    const refreshToken = localStorage.getItem('refresh_token')
+    const refreshToken = LocalStorage.get('refresh_token')
     if (!state.isAuthenticated && refreshToken) {
       dispatch({ type: Constants.REFRESH })
     }
